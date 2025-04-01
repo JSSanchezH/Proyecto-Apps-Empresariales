@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+    --white: #fff6ff;
+    --blue: #77bcfc;
+    --dark-blue: #164979;
+    --black: #000000;
+    --font: "Raleway", sans-serif;
+}
