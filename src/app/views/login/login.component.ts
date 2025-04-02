@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -8,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+  @ViewChild('loginContainer') loginContainer!: ElementRef;
 
+  toggleLogin() {
+    if (this.loginContainer) {
+      this.loginContainer.nativeElement.classList.toggle('toggle');
+    }
+  }
 }

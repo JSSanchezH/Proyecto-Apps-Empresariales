@@ -1,1 +1,78 @@
-<p>login works!</p>
+<div class="container">
+    <div class="topbar">
+        <div class="toggle">
+            <i class='bx bx-menu'></i>
+        </div>
+    </div>
+
+    <div #loginContainer class="login-container">
+        <div class="container-form">
+            <form action="" class="sign-in">
+                <h2>Log in</h2>
+                <div class="social-networks">
+                    <i class='bx bxl-google'></i>
+                    <i class='bx bxl-github'></i>
+                </div>
+                <span>Use your username and password</span>
+                <div class="container-input">
+                    <i class='bx bxs-user'></i>
+                    <input type="text" placeholder="Username" required>
+                </div>
+                <div class="container-input">
+                    <i class='bx bx-lock-alt'></i>
+                    <input type="password" placeholder="Password" required>
+                </div>
+                <a href="#">Forgot your password?</a>
+                <button class="btn">Log in</button>
+            </form>
+        </div>
+
+        <div class="container-form">
+            <form action="" class="register">
+                <h2>Register</h2>
+                <div class="social-networks">
+                    <i class='bx bxl-google'></i>
+                    <i class='bx bxl-github'></i>
+                </div>
+                <span>Sign up to start using RRHHAI!</span>
+                <div class="container-input">
+                    <i class='bx bx-buildings'></i>
+                    <input type="text" placeholder="Name of company" required>
+                </div>
+                <div class="container-input">
+                    <i class='bx bxs-id-card'></i>
+                    <input type="text" placeholder="NIT" required>
+                </div>
+                <div class="container-input">
+                    <i class='bx bx-street-view'></i>
+                    <input type="text" placeholder="Adress" required>
+                </div>
+                <div class="container-input">
+                    <i class='bx bx-envelope'></i>
+                    <input type="text" placeholder="Email" required>
+                </div>
+                <div class="container-input">
+                    <i class='bx bxs-school'></i>
+                    <input type="text" placeholder="Type industry" required>
+                </div>
+                <div class="container-input">
+                    <i class='bx bx-aperture'></i>
+                    <input type="text" placeholder="Logo" required>
+                </div>
+                <div class="container-input">
+                    <i class='bx bxs-user'></i>
+                    <input type="text" placeholder="Username" required>
+                </div>
+                <div class="container-input">
+                    <i class='bx bx-lock-alt'></i>
+                    <input type="password" placeholder="Password" required>
+                </div>
+                <button class="btn">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Agregamos event binding en Angular -->
+    <button class="btn.switch" (click)="toggleLogin()">Click</button>
+</div>
+
