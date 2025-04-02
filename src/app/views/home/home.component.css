@@ -7,6 +7,11 @@
     transition: 0.4s;
 }
 
+.container.active{
+    width: calc(100% - 80px);
+    left: 80px;
+}
+
 .container .topbar .toggle {
     position: relative;
     width: 60px;
