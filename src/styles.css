@@ -9,3 +9,20 @@
     --black: #000000;
     --font: "Raleway", sans-serif;
 }
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font);
+}
+
+body{
+    background: var(--white);
+    overflow-x: hidden;
+}
+
+section{
+    position: relative;
+    width: 100%;
+}

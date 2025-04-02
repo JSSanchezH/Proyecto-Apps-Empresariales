@@ -1,0 +1,16 @@
+.nav{
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background: var(--blue);
+    border-left: 10px solid var(--blue);
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+.nav.active{
+    width: 80px;
+}
+
+
+
