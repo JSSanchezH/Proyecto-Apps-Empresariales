@@ -7,6 +7,9 @@
     --blue: #77bcfc;
     --dark-blue: #164979;
     --black: #000000;
+    --grey: #e0e0e0;
+    --black2: #999;
+    --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     --font: "Raleway", sans-serif;
 }
 
