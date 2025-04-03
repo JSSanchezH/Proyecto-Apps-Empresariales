@@ -45,7 +45,7 @@
                 </div>
                 <div class="container-input">
                     <i class='bx bx-street-view'></i>
-                    <input type="text" placeholder="Adress" required>
+                    <input type="text" placeholder="Address" required>
                 </div>
                 <div class="container-input">
                     <i class='bx bx-envelope'></i>
@@ -70,9 +70,18 @@
                 <button class="btn">Register</button>
             </form>
         </div>
+
+        <div class="container-welcome">
+            <div class="welcome-register welcome">
+                <h3>Welcome!</h3>
+                <p>Enter your details to access the website</p>
+                <button class="btn" (click)="toggleRegister()">Register</button>
+            </div>
+            <div class="welcome-sign-in welcome">
+                <h3>Hello!</h3>
+                <p>Register your details to access the website</p>
+                <button class="btn" (click)="toggleSignIn()">Log in</button>  
+            </div>
+        </div>
     </div>
-
-    <!-- Agregamos event binding en Angular -->
-    <button class="btn.switch" (click)="toggleLogin()">Click</button>
 </div>
-

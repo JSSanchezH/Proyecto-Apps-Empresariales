@@ -8,11 +8,14 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+
   @ViewChild('loginContainer') loginContainer!: ElementRef;
 
-  toggleLogin() {
-    if (this.loginContainer) {
-      this.loginContainer.nativeElement.classList.toggle('toggle');
-    }
+  toggleRegister(): void {
+    this.loginContainer.nativeElement.classList.add('toggle');
+  }
+
+  toggleSignIn(): void {
+    this.loginContainer.nativeElement.classList.remove('toggle');
   }
 }
