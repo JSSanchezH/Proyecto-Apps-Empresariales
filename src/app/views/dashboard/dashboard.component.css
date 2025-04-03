@@ -134,4 +134,177 @@
 
 /*employees*/
 
+.details{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 30px;
+    margin-top: 10px;
+}
+
+.details .employees,
+.details .register-employe{
+    position: relative;
+    display: grid;
+    min-height: 500px;
+    background: var(--white);
+    padding: 20px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.header h2{
+    font-size: 1.8em;
+    color: var(--blue);
+}
+
+.btn{
+    position: relative;
+    padding: 5px 10px;
+    background-color: var(--blue);
+    text-decoration: none;
+    color: var(--white);
+    border-radius: 5px;
+}
+
+.details .table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.details .employees table tr{
+    color: var(--black);
+    border-radius: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.details .employees table tr:hover{
+    background: var(--blue);
+    color: var(--white);
+}
+
+.details.employees table th:hover{
+    background: var(--blue);
+    color: var(--white);
+}
+
+.details .employees table tr:hover .btn-actions {
+    background: transparent;
+    color: white;
+    border-color: white;
+}
+.details .employees table th,
+.details.employees table tr td{
+    padding: 10px;
+    border-radius: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.details .employees table th:last-child,
+.details .employees table tr td:last-child{
+    text-align: center;
+}
+
+.details .employees table th:nth-child(3),
+.details .employees table tr td:nth-child(3){
+    text-align: center;
+}
+
+.details .employees table th:nth-child(4),
+.details .employees table tr td:nth-child(4){
+    text-align: center;
+}
+
+.details .employees table th:nth-child(2),
+.details .employees table tr td:nth-child(2){
+    text-align: center;
+}
+
+.btn-actions {
+    display: inline-block;
+    padding: 5px 10px;
+    border: 2px solid black;
+    color: black;
+    background: transparent;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    margin-right: 10px;
+}
+
+.register-employe{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 500px;
+    background: var(--white);
+    padding: 20px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+}
+
+.register-employe .center-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    gap: 50px;
+}
+
+.register-employe .icon{
+    margin-top: 100px;
+    font-size: 10em;
+    color: var(--dark-blue);
+    animation: float 3s infinite ease-in-out;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.register-employe .button-container{
+    margin-bottom: 20px;
+}
+
+.register-employe .btn-register{
+    padding: 15px 30px;
+    background: var(--blue);
+    color: var(--white);
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    text-align: center;
+    display: inline-block;
+}
+
+.register-employe .btn-register:hover{
+    background: var(--dark-blue);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(22, 73, 121, 0.3);
+}
+
+
+
+
+
 
