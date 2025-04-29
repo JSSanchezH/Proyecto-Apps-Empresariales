@@ -1,31 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 
-:root{
-    --white: #fff6ff;
-    --blue: #77bcfc;
-    --dark-blue: #164979;
-    --black: #000000;
-    --grey: #e0e0e0;
-    --black2: #999;
-    --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    --font: "Raleway", sans-serif;
+:root {
+  --white: #fff6ff;
+  --blue: #77bcfc;
+  --dark-blue: #164979;
+  --black: #000000;
+  --grey: #e0e0e0;
+  --black2: #999;
+  --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --font: "Raleway", sans-serif;
 }
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: var(--font);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font);
 }
 
-body{
-    background: var(--white);
-    overflow-x: hidden;
+body {
+  background: var(--white);
+  overflow-x: hidden;
 }
 
-section{
-    position: relative;
-    width: 100%;
+section {
+  position: relative;
+  width: 100%;
 }

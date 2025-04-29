@@ -1,0 +1,46 @@
+<div class="employees">
+  <div class="header">
+    <h2>Employees</h2>
+
+    <div class="pagination-controls">
+      <a
+        (click)="loadLess()"
+        class="btn"
+        *ngIf="displayedEmployees.length > initialEmployeeCount"
+        >View less</a
+      >
+
+      <a
+        (click)="loadMore()"
+        class="btn"
+        *ngIf="displayedEmployees.length < employees.length"
+        >View more</a
+      >
+    </div>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>ID</th>
+        <th>Department</th>
+        <th>Role</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of displayedEmployees">
+        <td>{{ employee.name }}</td>
+        <td>{{ employee.id }}</td>
+        <td>{{ employee.department }}</td>
+        <td>{{ employee.role }}</td>
+        <td>
+          <a href="#" class="btn-actions">Evaluate</a>
+          <a href="#" class="btn-actions">Generate Report</a>
+          <a href="/employee" class="btn-actions">Edit</a>
+          <a href="#" class="btn-actions">Hire</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

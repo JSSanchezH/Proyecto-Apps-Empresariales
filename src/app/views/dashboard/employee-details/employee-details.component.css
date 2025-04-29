@@ -1,0 +1,137 @@
+.employees {
+  display: grid;
+  min-height: 200px;
+  background: var(--white);
+  padding: 20px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  overflow: hidden;
+  gap: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.header h2 {
+  font-size: 1.8em;
+  color: var(--blue);
+  margin: 0;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+.btn {
+  padding: 8px 15px;
+  background-color: var(--blue);
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--dark-blue);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  text-align: left;
+}
+
+.employees table tr {
+  color: var(--black);
+  border-radius: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.employees table tr:hover {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.details.employees table th:hover {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.employees table tr:hover .btn-actions {
+  background: transparent;
+  color: white;
+  border-color: white;
+}
+
+.employees table tr:hover .btn-actions:hover {
+  background: var(--dark-blue);
+  color: white;
+  border-color: var(--dark-blue);
+}
+
+.employees table th,
+.employees table tr td {
+  padding: 10px;
+  border-radius: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.employees table th,
+.employees table td {
+  border-radius: 8px;
+}
+.employees table th:nth-child(1),
+.employees table td:nth-child(1),
+.employees table th:nth-child(2),
+.employees table td:nth-child(2),
+.employees table th:nth-child(3),
+.employees table td:nth-child(3),
+.employees table th:nth-child(4),
+.employees table td:nth-child(4),
+.employees table th:nth-child(5),
+.employees table td:nth-child(5) {
+  text-align: center;
+}
+
+.employees table th:nth-child(1),
+.employees table td:nth-child(1) {
+  width: 15%;
+}
+
+.employees table th:nth-child(2),
+.employees table td:nth-child(2) {
+  width: 15%;
+}
+
+.employees table th:nth-child(3),
+.employees table td:nth-child(3) {
+  width: 12.5%;
+}
+
+.employees table th:nth-child(4),
+.employees table td:nth-child(4) {
+  width: 12.5%;
+}
+
+.employees table th:nth-child(5),
+.employees table td:nth-child(5) {
+  width: 40%;
+}
+.btn-actions {
+  display: inline-block;
+  padding: 5px 10px;
+  border: 2px solid black;
+  color: black;
+  background: transparent;
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  margin-right: 10px;
+}
