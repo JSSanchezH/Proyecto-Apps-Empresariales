@@ -1,207 +1,185 @@
 .container {
-    position: absolute;
-    width: calc(100% - 300px);
-    left: 300px;
-    min-height: 100vh;
-    background: var(--grey);
-    transition: 0.4s;
+  position: absolute;
+  width: calc(100% - 300px);
+  left: 300px;
+  min-height: 100vh;
+  background: var(--grey);
+  transition: 0.4s;
 }
 
 .container.active {
-    width: calc(100% - 80px);
-    left: 80px;
-}
-
-.container .topbar .toggle {
-    position: relative;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2.5em;
-    cursor: pointer;
+  width: calc(100% - 80px);
+  left: 80px;
 }
 
 .login-container {
-    
-    width: 1000px;
-    height: 700px;
+  width: 1000px;
+  height: 700px;
 
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-    display: flex;
-    background-color: var(--white);
+  display: flex;
+  background-color: var(--white);
 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    border-radius: 15px;
-
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
 }
-
 
 /* Contenedor de formularios */
 .container-form {
-    
-    width: 100%;
-    overflow: hidden;
+  width: 100%;
+  overflow: hidden;
 }
 
 .container-form form {
-    
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.5s ease-in;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s ease-in;
 }
 
 .container-form h2 {
-    font-size: 30px;
-    margin-bottom: 20px;
+  font-size: 30px;
+  margin-bottom: 20px;
 }
 
 .social-networks {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 25px;
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
 }
 
 .social-networks i {
-    border: 1px solid #C9CCCB;
-    font-size: 18px;
-    border-radius: 6px;
-    padding: 8px;
-    cursor: pointer;
+  border: 1px solid #c9cccb;
+  font-size: 18px;
+  border-radius: 6px;
+  padding: 8px;
+  cursor: pointer;
 }
 
 .container-form span {
-    font-size: 12px;
-    margin-bottom: 15px;
+  font-size: 12px;
+  margin-bottom: 15px;
 }
 
 .container-input {
-    width: 300px;
-    height: 40px;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 0 15px;
-    background-color: #EEEEEE;
-    border-radius: 6px;
+  width: 300px;
+  height: 40px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 15px;
+  background-color: #eeeeee;
+  border-radius: 6px;
 }
 
 .container-input input {
-    border: none;
-    outline: none;
-    width: 100%;
-    height: 100%;
-    background-color: inherit;
+  border: none;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  background-color: inherit;
 }
 
 .container-form a {
-    color: var(--black);
-    font-size: 14px;
-    margin-bottom: 20px;
-    margin-top: 5px;
+  color: var(--black);
+  font-size: 14px;
+  margin-bottom: 20px;
+  margin-top: 5px;
 }
 
 .btn {
-    width: 170px;
-    height: 45px;
-    font-size: 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-    background-color: var(--blue);
-    color: var(--white);
+  width: 170px;
+  height: 45px;
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  background-color: var(--blue);
+  color: var(--white);
 }
 
 .btn:hover {
-    background-color: var(--dark-blue);
+  background-color: var(--dark-blue);
 }
 
 /* Animación de los formularios */
 .register {
-    transform: translateX(-100%);
+  transform: translateX(-100%);
 }
 
 /* Cuando se activa la clase "toggle", intercambia posiciones */
 .login-container.toggle .sign-in {
-    transform: translateX(100%);
+  transform: translateX(100%);
 }
 
 .login-container.toggle .register {
-    transform: translateX(0%);
+  transform: translateX(0%);
 }
 
 /* Estilos para el contenedor de bienvenida */
 .container-welcome {
-    position: absolute;
-    width: 50%;
-    height: 100%;
-    display: flex;
-    background-color: var(--blue);
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.5s ease-in-out, border-radius 0.5s ease-in-out;
-    transform: translateX(100%);
-    overflow: hidden;
-    border-radius: 50% 0 0 50%;
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  background-color: var(--blue);
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s ease-in-out, border-radius 0.5s ease-in-out;
+  transform: translateX(100%);
+  overflow: hidden;
+  border-radius: 50% 0 0 50%;
 }
 
 .login-container.toggle .container-welcome {
-    transform: translateX(0%);
-    border-radius: 0 50% 50% 0;
-    background-color: var(--dark-blue);
+  transform: translateX(0%);
+  border-radius: 0 50% 50% 0;
+  background-color: var(--dark-blue);
 }
 
 /* Animaciones internas de los textos dentro del contenedor de bienvenida */
 .container-welcome .welcome {
-    
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 0 50px;
-    color: var(--white);
-    transition: transform 0.5s ease-in-out;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 0 50px;
+  color: var(--white);
+  transition: transform 0.5s ease-in-out;
 }
 
 .welcome-sign-in {
-    transform: translateX(100%);
+  transform: translateX(100%);
 }
 
 .login-container.toggle .welcome-sign-in {
-    transform: translateX(0);
+  transform: translateX(0);
 }
 
 .login-container.toggle .welcome-register {
-    transform: translateX(-100%);
+  transform: translateX(-100%);
 }
 
 .container-welcome h3 {
-    font-size: 40px;
+  font-size: 40px;
 }
 
 .container-welcome p {
-    font-size: 20px;
-    text-align: center;
+  font-size: 20px;
+  text-align: center;
 }
 
 .container-welcome .btn {
-    border: 2px solid var(--white);
-    background-color: transparent;
+  border: 2px solid var(--white);
+  background-color: transparent;
 }
-
-
-
-
-

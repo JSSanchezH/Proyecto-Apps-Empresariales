@@ -1,14 +1,14 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { TopbarComponent } from '../../shared/topbar/topbar.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [],
+  imports: [TopbarComponent],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrl: './login.component.css',
 })
 export class LoginComponent {
-
   @ViewChild('loginContainer') loginContainer!: ElementRef;
 
   toggleRegister(): void {
@@ -30,6 +30,4 @@ export class LoginComponent {
       nav?.classList.toggle('active');
     });
   }
-
-
 }

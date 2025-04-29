@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { ButtonComponent } from '../../../shared/button/button.component';
 
 @Component({
   selector: 'app-employee-details',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ButtonComponent],
   templateUrl: './employee-details.component.html',
   styleUrl: './employee-details.component.css',
 })

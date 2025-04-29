@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
+import { ButtonComponent } from '../../../shared/button/button.component';
 
 @Component({
   selector: 'app-register-employee',
   standalone: true,
-  imports: [],
+  imports: [ButtonComponent],
   templateUrl: './register-employee.component.html',
-  styleUrl: './register-employee.component.css'
+  styleUrl: './register-employee.component.css',
 })
-export class RegisterEmployeeComponent {
-
-}
+export class RegisterEmployeeComponent {}

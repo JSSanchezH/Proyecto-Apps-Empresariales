@@ -7,7 +7,11 @@
       <i class="bx bx-user-plus"></i>
     </div>
     <div class="button-container">
-      <a href="employee" class="btn-register">Register a new employees</a>
+      <app-button
+        [buttonText]="'Register a new employees'"
+        [routerLink]="'/employee'"
+        [buttonSize]="'large'"
+      ></app-button>
     </div>
   </div>
 </div>

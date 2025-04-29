@@ -3,19 +3,18 @@
     <h2>Employees</h2>
 
     <div class="pagination-controls">
-      <a
+      <app-button
         (click)="loadLess()"
-        class="btn"
         *ngIf="displayedEmployees.length > initialEmployeeCount"
-        >View less</a
-      >
-
-      <a
+        [buttonText]="'View less'"
+        [buttonSize]="'medium'"
+      ></app-button>
+      <app-button
         (click)="loadMore()"
-        class="btn"
         *ngIf="displayedEmployees.length < employees.length"
-        >View more</a
-      >
+        [buttonText]="'View more'"
+        [buttonSize]="'medium'"
+      ></app-button>
     </div>
   </div>
   <table>
