@@ -3,6 +3,7 @@ import { WelcomeSectionComponent } from './welcome-section/welcome-section.compo
 import { FeaturesSectionComponent } from './features-section/features-section.component';
 import { DashboardPreviewComponent } from './dashboard-preview/dashboard-preview.component';
 import { TechSectionComponent } from './tech-section/tech-section.component';
+import { TopbarComponent } from '../../shared/topbar/topbar.component';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,7 @@ import { TechSectionComponent } from './tech-section/tech-section.component';
     FeaturesSectionComponent,
     DashboardPreviewComponent,
     TechSectionComponent,
+    TopbarComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',

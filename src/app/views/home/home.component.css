@@ -12,17 +12,6 @@
   left: 80px;
 }
 
-.container .topbar .toggle {
-  position: relative;
-  width: 60px;
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2.5em;
-  cursor: pointer;
-}
-
 .home-content {
   padding: 20px;
 }
