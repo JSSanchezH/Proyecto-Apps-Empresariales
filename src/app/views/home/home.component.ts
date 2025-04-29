@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NavbarComponent } from '../../shared/navbar/navbar.component';
 import { WelcomeSectionComponent } from './welcome-section/welcome-section.component';
 import { FeaturesSectionComponent } from './features-section/features-section.component';
 import { DashboardPreviewComponent } from './dashboard-preview/dashboard-preview.component';
@@ -9,7 +8,6 @@ import { TechSectionComponent } from './tech-section/tech-section.component';
   selector: 'app-home',
   standalone: true,
   imports: [
-    NavbarComponent,
     WelcomeSectionComponent,
     FeaturesSectionComponent,
     DashboardPreviewComponent,

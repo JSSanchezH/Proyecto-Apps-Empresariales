@@ -1,0 +1,14 @@
+.register-btn {
+  padding: 10px 20px;
+  background: var(--blue);
+  color: var(--white);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background 0.3s;
+}
+
+.register-btn:hover {
+  background: var(--dark-blue);
+}
