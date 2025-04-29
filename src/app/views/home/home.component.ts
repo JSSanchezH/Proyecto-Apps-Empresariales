@@ -1,15 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { NavbarComponent } from '../../shared/navbar/navbar.component';
+import { WelcomeSectionComponent } from './welcome-section/welcome-section.component';
+import { FeaturesSectionComponent } from './features-section/features-section.component';
+import { DashboardPreviewComponent } from './dashboard-preview/dashboard-preview.component';
+import { TechSectionComponent } from './tech-section/tech-section.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NavbarComponent],
+  imports: [
+    NavbarComponent,
+    WelcomeSectionComponent,
+    FeaturesSectionComponent,
+    DashboardPreviewComponent,
+    TechSectionComponent,
+  ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.css',
 })
 export class HomeComponent implements OnInit {
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
     // Toggle menu functionality

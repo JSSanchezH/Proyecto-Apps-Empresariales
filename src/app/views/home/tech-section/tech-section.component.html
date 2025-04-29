@@ -1,0 +1,10 @@
+<div class="tech-section">
+  <h2>Cutting-edge technologies</h2>
+  <div class="tech-icons">
+    <app-tech-icon
+      *ngFor="let tech of techList"
+      [icon]="tech.icon"
+      [label]="tech.label"
+    ></app-tech-icon>
+  </div>
+</div>

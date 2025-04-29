@@ -1,0 +1,16 @@
+.tech-section {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.tech-section h2 {
+  margin-bottom: 20px;
+  color: var(--black);
+}
+
+.tech-icons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
