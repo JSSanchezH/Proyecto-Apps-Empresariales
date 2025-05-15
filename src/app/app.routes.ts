@@ -3,6 +3,7 @@ import { HomeComponent } from './views/home/home.component';
 import { LoginComponent } from './views/login/login.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { EmployeesComponent } from './views/employees/employees.component';
+import { RegisterEmployeeComponent } from './views/register-employee/register-employee.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -10,4 +11,5 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'EditEmployee', component: EmployeesComponent },
+  { path: 'registerEmployee', component: RegisterEmployeeComponent },
 ];
