@@ -1,1 +1,46 @@
-<p>schedules-details works!</p>
+<div class="schedules">
+  <div class="header">
+    <h2>schedules</h2>
+
+    <div class="pagination-controls">
+      <app-button
+        (click)="loadLessSchedules()"
+        *ngIf="displayedSchedules.length > initialSchedulesCount"
+        [buttonText]="'View less'"
+        [buttonSize]="'medium'"
+      ></app-button>
+      <app-button
+        (click)="loadMoreSchedules()"
+        *ngIf="displayedSchedules.length < schedules.length"
+        [buttonText]="'View more'"
+        [buttonSize]="'medium'"
+      ></app-button>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Employee</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Break Start</th>
+        <th>Break End</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let schedule of displayedSchedules">
+        <td>{{ schedule.employee }}</td>
+        <td>{{ schedule.startTime }}</td>
+        <td>{{ schedule.endTime }}</td>
+        <td>{{ schedule.breakStart }}</td>
+        <td>{{ schedule.breakEnd }}</td>
+        <td class="actions-cell">
+          <a href="#" class="btn-actions">Edit</a>
+          <a href="#" class="btn-actions">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

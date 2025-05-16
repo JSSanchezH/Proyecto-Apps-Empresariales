@@ -1,0 +1,133 @@
+.schedules {
+  display: grid;
+  min-height: 200px;
+  background: var(--white);
+  padding: 20px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  overflow: hidden;
+  gap: 20px;
+}
+
+.schedules .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.schedules .header h2 {
+  font-size: 1.8em;
+  color: var(--blue);
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.schedules .pagination-controls {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  text-align: left;
+}
+
+.schedules table tr {
+  color: var(--black);
+  border-radius: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.schedules table tr:hover {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.schedules table th:hover {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.schedules table tr:hover .btn-actions {
+  background: transparent;
+  color: white;
+  border-color: white;
+}
+
+.schedules table tr:hover .btn-actions:hover {
+  background: var(--dark-blue);
+  color: white;
+  border-color: var(--dark-blue);
+}
+
+.schedules table th,
+.schedules table tr td {
+  padding: 10px;
+  border-radius: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.schedules table th,
+.schedules table td {
+  border-radius: 8px;
+}
+
+.schedules table th:nth-child(1),
+.schedules table td:nth-child(1),
+.schedules table th:nth-child(2),
+.schedules table td:nth-child(2),
+.schedules table th:nth-child(3),
+.schedules table td:nth-child(3),
+.schedules table th:nth-child(4),
+.schedules table td:nth-child(4),
+.schedules table th:nth-child(5),
+.schedules table td:nth-child(5) {
+  text-align: center;
+}
+
+.schedules table th:nth-child(1),
+.schedules table td:nth-child(1) {
+  width: 15%;
+}
+
+.schedules table th:nth-child(2),
+.schedules table td:nth-child(2) {
+  width: 15%;
+}
+
+.schedules table th:nth-child(3),
+.schedules table td:nth-child(3) {
+  width: 12.5%;
+}
+
+.schedules table th:nth-child(4),
+.schedules table td:nth-child(4) {
+  width: 12.5%;
+}
+
+.schedules table th:nth-child(5),
+.schedules table td:nth-child(5) {
+  width: 40%;
+}
+
+.btn-actions {
+  display: inline-block;
+  padding: 5px 10px;
+  border: 2px solid black;
+  color: black;
+  background: transparent;
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.actions-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
