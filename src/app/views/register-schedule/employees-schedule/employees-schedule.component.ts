@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ButtonComponent } from '../../../shared/button/button.component';
 import { CommonModule } from '@angular/common';
 
@@ -10,6 +10,9 @@ import { CommonModule } from '@angular/common';
   styleUrl: './employees-schedule.component.css'
 })
 export class EmployeesScheduleComponent {
+
+   @Output() showForm = new EventEmitter<void>();
+
 
   employees = [
     { name: 'Juan Sanchez', id: '123456', department: 'HR', role: 'Manager' },
@@ -114,7 +117,7 @@ export class EmployeesScheduleComponent {
   }
 
   assignSchedule(employee: any) {
-    console.log('Assigning schedule to:', employee);
+    console.log('Assign clicked');
+    this.showForm.emit(); // Emitimos solo para mostrar el formulario
   }
-
 }

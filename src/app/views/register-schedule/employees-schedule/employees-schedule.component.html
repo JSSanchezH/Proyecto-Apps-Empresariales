@@ -17,7 +17,6 @@
       ></app-button>
     </div>
   </div>
-
   <table>
     <thead>
       <tr>
@@ -25,7 +24,7 @@
         <th>ID</th>
         <th>Department</th>
         <th>Role</th>
-        <th>Assign</th>
+        <th>Assign Schedule</th>
       </tr>
     </thead>
     <tbody>
@@ -34,8 +33,10 @@
         <td>{{ employee.id }}</td>
         <td>{{ employee.department }}</td>
         <td>{{ employee.role }}</td>
-        <td class="checkbox-cell">
-          <input type="checkbox" />
+        <td class="actions-cell">
+          <button class="assign-button" (click)="assignSchedule(employee)">
+            ✔ Assign
+          </button>
         </td>
       </tr>
     </tbody>

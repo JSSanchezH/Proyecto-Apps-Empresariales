@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-schedule-form',
@@ -8,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrl: './schedule-form.component.css'
 })
 export class ScheduleFormComponent {
+
+  @Output() close = new EventEmitter<void>();
+
+  closeForm() {
+    this.close.emit();
+  }
 
 }
