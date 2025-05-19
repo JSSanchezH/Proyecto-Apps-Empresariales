@@ -6,6 +6,7 @@ import { EmployeesComponent } from './views/employees/employees.component';
 import { RegisterEmployeeComponent } from './views/register-employee/register-employee.component';
 import { SchedulesComponent } from './views/schedules/schedules.component';
 import { RegisterScheduleComponent } from './views/register-schedule/register-schedule.component';
+import { EditSchedulesComponent } from './views/edit-schedules/edit-schedules.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -16,5 +17,6 @@ export const routes: Routes = [
   { path: 'registerEmployee', component: RegisterEmployeeComponent },
   { path: 'schedules', component: SchedulesComponent },
   { path: 'registerSchedules', component: RegisterScheduleComponent },
+  { path: 'editSchedules', component: EditSchedulesComponent },  
   
 ];
