@@ -1,1 +1,48 @@
-<p>payrolls-details works!</p>
+<div class="payrolls">
+  <div class="header">
+    <h2>Payrolls</h2>
+
+    <div class="pagination-controls">
+      <app-button
+        (click)="loadLessPayrolls()"
+        *ngIf="displayedPayrolls.length > initialPayrollsCount"
+        [buttonText]="'View less'"
+        [buttonSize]="'medium'"
+      ></app-button>
+      <app-button
+        (click)="loadMorePayrolls()"
+        *ngIf="displayedPayrolls.length < payrolls.length"
+        [buttonText]="'View more'"
+        [buttonSize]="'medium'"
+      ></app-button>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Employee</th>
+        <th>Payment Date</th>
+        <th>Base salary</th>
+        <th>Bonuses</th>
+        <th>Total Payment</th>
+        <th>Payment method</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let payroll of displayedPayrolls">
+        <td>{{ payroll.employee }}</td>
+        <td>{{ payroll.payment_Date }}</td>
+        <td>{{ payroll.base_Salary }}</td>
+        <td>{{ payroll.bonuses }}</td>
+        <td>{{ payroll.total_Payment }}</td>
+        <td>{{ payroll.payment_Method }}</td>
+        <td class="actions-cell">
+          <a href="#" class="btn-actions">Edit</a>
+          <a href="#" class="btn-actions">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
