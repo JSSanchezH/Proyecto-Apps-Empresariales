@@ -8,6 +8,7 @@ import { SchedulesComponent } from './views/schedules/schedules.component';
 import { RegisterScheduleComponent } from './views/register-schedule/register-schedule.component';
 import { EditSchedulesComponent } from './views/edit-schedules/edit-schedules.component';
 import { PayrollsComponent } from './views/payrolls/payrolls.component';
+import { RegisterPayrollsComponent } from './views/register-payrolls/register-payrolls.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -19,6 +20,8 @@ export const routes: Routes = [
   { path: 'schedules', component: SchedulesComponent },
   { path: 'registerSchedules', component: RegisterScheduleComponent },
   { path: 'editSchedules', component: EditSchedulesComponent },
-  { path: 'payrolls', component: PayrollsComponent },  
+  { path: 'payrolls', component: PayrollsComponent },
+  { path: 'registerPayrolls', component: RegisterPayrollsComponent },
+
   
 ];
