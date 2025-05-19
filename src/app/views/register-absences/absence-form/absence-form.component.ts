@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-absence-form',
@@ -8,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrl: './absence-form.component.css'
 })
 export class AbsenceFormComponent {
+
+  @Output() close = new EventEmitter<void>();
+
+  closeForm() {
+    this.close.emit();
+  }
 
 }
