@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-payroll-form',
@@ -9,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class PayrollFormComponent {
 
+  @Output() close = new EventEmitter<void>();
+
+  closeForm() {
+    this.close.emit();
+  }
+  
 }

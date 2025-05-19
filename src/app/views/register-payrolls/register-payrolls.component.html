@@ -1,1 +1,9 @@
-<p>register-payrolls works!</p>
+<div class="container">
+  <app-topbar></app-topbar>
+
+  <div class="items">
+    <app-employees-payroll (showForm)="showForm()"></app-employees-payroll>
+
+    <app-payroll-form *ngIf="isFormVisible" (close)="hideForm()"></app-payroll-form>
+  </div>
+</div>
