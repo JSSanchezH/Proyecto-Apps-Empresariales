@@ -15,6 +15,7 @@ import { RegisterAbsencesComponent } from './views/register-absences/register-ab
 import { EditAbsencesComponent } from './views/edit-absences/edit-absences.component';
 import { EvaluationsComponent } from './views/evaluations/evaluations.component';
 import { HeadquartersComponent } from './views/headquarters/headquarters.component';
+import { EditHeadquarterComponent } from './views/edit-headquarter/edit-headquarter.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -34,6 +35,7 @@ export const routes: Routes = [
   { path: 'editAbsences', component: EditAbsencesComponent },
   { path: 'evaluations', component: EvaluationsComponent },
   { path: 'headquarters', component: HeadquartersComponent },
+  { path: 'editHeadquarters', component: EditHeadquarterComponent },
 
   
 ];
