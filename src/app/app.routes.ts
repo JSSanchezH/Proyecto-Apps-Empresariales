@@ -37,5 +37,4 @@ export const routes: Routes = [
   { path: 'headquarters', component: HeadquartersComponent },
   { path: 'editHeadquarters', component: EditHeadquarterComponent },
 
-  
 ];
