@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
+import { TopbarComponent } from '../../shared/topbar/topbar.component';
+import { EditAbsenceFormComponent } from './edit-absence-form/edit-absence-form.component';
 
 @Component({
-  selector: 'app-employees',
+  selector: 'app-edit-absences',
   standalone: true,
-  imports: [],
-  templateUrl: './employees.component.html',
-  styleUrl: './employees.component.css'
+  imports: [TopbarComponent, EditAbsenceFormComponent],
+  templateUrl: './edit-absences.component.html',
+  styleUrl: './edit-absences.component.css'
 })
-export class EmployeesComponent {
+export class EditAbsencesComponent {
 
   ngOnInit(): void {
     // Toggle menu functionality
@@ -20,4 +22,5 @@ export class EmployeesComponent {
       nav?.classList.toggle('active');
     });
   }
+
 }

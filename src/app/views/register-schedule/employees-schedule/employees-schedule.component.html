@@ -24,7 +24,7 @@
         <th>ID</th>
         <th>Department</th>
         <th>Role</th>
-        <th>Actions</th>
+        <th>Assign Schedule</th>
       </tr>
     </thead>
     <tbody>
@@ -33,11 +33,10 @@
         <td>{{ employee.id }}</td>
         <td>{{ employee.department }}</td>
         <td>{{ employee.role }}</td>
-        <td>
-          <a href="/evaluations" class="btn-actions">Evaluate</a>
-          <a href="#" class="btn-actions">Generate Report</a>
-          <a href="/EditEmployee" class="btn-actions">Edit</a>
-          <a href="#" class="btn-actions">Dissmis</a>
+        <td class="actions-cell">
+          <button class="assign-button" (click)="assignSchedule(employee)">
+            ✔ Assign
+          </button>
         </td>
       </tr>
     </tbody>

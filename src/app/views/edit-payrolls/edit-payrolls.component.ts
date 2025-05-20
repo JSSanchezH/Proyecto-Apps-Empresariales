@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
+import { TopbarComponent } from '../../shared/topbar/topbar.component';
+import { EditFormComponent } from './edit-form/edit-form.component';
 
 @Component({
-  selector: 'app-employees',
+  selector: 'app-edit-payrolls',
   standalone: true,
-  imports: [],
-  templateUrl: './employees.component.html',
-  styleUrl: './employees.component.css'
+  imports: [TopbarComponent, EditFormComponent],
+  templateUrl: './edit-payrolls.component.html',
+  styleUrl: './edit-payrolls.component.css'
 })
-export class EmployeesComponent {
+export class EditPayrollsComponent {
 
   ngOnInit(): void {
     // Toggle menu functionality
@@ -20,4 +22,5 @@ export class EmployeesComponent {
       nav?.classList.toggle('active');
     });
   }
+
 }

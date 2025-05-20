@@ -1,13 +1,16 @@
 import { Component } from '@angular/core';
+import { RegisterFormComponent } from './register-form/register-form.component';
 
 @Component({
-  selector: 'app-employees',
+  selector: 'app-register-employee',
   standalone: true,
-  imports: [],
-  templateUrl: './employees.component.html',
-  styleUrl: './employees.component.css'
+  imports: [
+    RegisterFormComponent,
+  ],
+  templateUrl: './register-employee.component.html',
+  styleUrl: './register-employee.component.css'
 })
-export class EmployeesComponent {
+export class RegisterEmployeeComponent {
 
   ngOnInit(): void {
     // Toggle menu functionality

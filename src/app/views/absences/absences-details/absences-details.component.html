@@ -1,0 +1,46 @@
+<div class="absences">
+  <div class="header">
+    <h2>Absences</h2>
+
+    <div class="pagination-controls">
+      <app-button
+        (click)="loadLessAbsences()"
+        *ngIf="displayedAbsences.length > initialAbsencesCount"
+        [buttonText]="'View less'"
+        [buttonSize]="'medium'"
+      ></app-button>
+      <app-button
+        (click)="loadMoreAbsences()"
+        *ngIf="displayedAbsences.length < absences.length"
+        [buttonText]="'View more'"
+        [buttonSize]="'medium'"
+      ></app-button>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Employee</th>
+        <th>Absence Type</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let absence of displayedAbsences">
+        <td>{{ absence.employee }}</td>
+        <td>{{ absence.absence_Type }}</td>
+        <td>{{ absence.start_Date }}</td>
+        <td>{{ absence.end_Date }}</td>
+        <td>{{ absence.description }}</td>
+        <td class="actions-cell">
+          <a href="/editAbsences" class="btn-actions">Edit</a>
+          <a href="#" class="btn-actions">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

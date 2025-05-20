@@ -1,0 +1,46 @@
+<div class="headquarters">
+  <div class="header">
+    <h2>Headquarters</h2>
+
+    <div class="pagination-controls">
+      <app-button
+        (click)="loadLessHeadquarters()"
+        *ngIf="displayedHeadquarters.length > initialHeadquartersCount"
+        [buttonText]="'View less'"
+        [buttonSize]="'medium'"
+      ></app-button>
+      <app-button
+        (click)="loadMoreHeadquarters()"
+        *ngIf="displayedHeadquarters.length < headquarters.length"
+        [buttonText]="'View more'"
+        [buttonSize]="'medium'"
+      ></app-button>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Adress</th>
+        <th>Phone</th>
+        <th>City</th>
+        <th>Company</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let headquarter of displayedHeadquarters">
+        <td>{{ headquarter.name }}</td>
+        <td>{{ headquarter.addres }}</td>
+        <td>{{ headquarter.phone }}</td>
+        <td>{{ headquarter.city }}</td>
+        <td>{{ headquarter.company }}</td>
+        <td class="actions-cell">
+          <a href="/editHeadquarters" class="btn-actions">Edit</a>
+          <a href="#" class="btn-actions">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

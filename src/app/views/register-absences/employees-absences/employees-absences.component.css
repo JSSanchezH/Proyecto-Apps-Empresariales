@@ -1,0 +1,71 @@
+.employees {
+  display: grid;
+  min-height: 200px;
+  background: var(--white);
+  padding: 20px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  overflow: hidden;
+  gap: 20px;
+}
+
+.employees .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.employees .header h2 {
+  font-size: 1.8em;
+  color: var(--blue);
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.employees .pagination-controls {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.employees table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  text-align: left;
+}
+
+.employees table th,
+.employees table td {
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.employees table tr:hover {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.assign-button {
+  background-color: var(--blue);
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.assign-button:hover {
+  background-color: var(--dark-blue);
+}
+
+.actions-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

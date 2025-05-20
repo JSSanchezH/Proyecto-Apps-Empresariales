@@ -1,0 +1,44 @@
+<div class="absence-form-container">
+  <div class="container-form">
+    <form class="edit-absence">
+      <h2>Register Absence</h2>
+      <button type="button" class="close-btn" (click)="closeForm()">✖</button>
+      <span>Fill the Absence information</span>
+
+
+      <label class="field-label">Absence Type</label>
+      <div class="container-input">
+        <i class='bx bx-credit-card'></i>
+        <select>
+          <option value="" disabled selected>Select Absence Type</option>
+          <option value="sick_leave">Sick Leave</option>
+          <option value="vacation">Vacation</option>
+          <option value="personal">Personal</option>
+          <option value="unpaid">Unpaid Leave</option>
+        </select>
+      </div>
+
+
+      <label class="field-label">Start Date</label>
+      <div class="container-input">
+        <i class='bx bx-calendar'></i>
+        <input type="date" placeholder="Start Date">
+      </div>
+
+      <label class="field-label">End Date</label>
+      <div class="container-input">
+        <i class='bx bx-calendar'></i>
+        <input type="date" placeholder="End Date">
+      </div>
+
+
+      <label class="field-label">Description</label>
+      <div class="container-input textarea">
+        <i class='bx bx-note'></i>
+        <textarea placeholder="Enter a description..." rows="3"></textarea>
+      </div>
+
+      <button class="btn">Register</button>
+    </form>
+  </div>
+</div>
