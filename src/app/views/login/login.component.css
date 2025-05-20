@@ -183,3 +183,33 @@
   border: 2px solid var(--white);
   background-color: transparent;
 }
+
+/* Estado base: ambos formularios ocultos */
+.login-form {
+  /* position: absolute; */
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(40%);
+  transition: all 0.4s ease-in-out;
+}
+
+.register-form {
+  /* position: absolute; */
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-40%);
+  transition: all 0.4s ease-in-out;
+}
+/* Cuando está activo el login */
+.login-form.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0%);
+}
+
+/* Cuando está activo el register */
+.register-form.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0%);
+}

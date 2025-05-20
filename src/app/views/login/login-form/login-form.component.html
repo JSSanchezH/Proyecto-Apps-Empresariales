@@ -1,0 +1,19 @@
+<form class="sign-in">
+  <h2>Log in</h2>
+  <div class="social-networks">
+    <i class="bx bxl-google"></i>
+    <i class="bx bxl-github"></i>
+  </div>
+  <span>Use your username and password</span>
+
+  <app-input-field
+    *ngFor="let input of inputs"
+    [iconClass]="input.iconClass"
+    [type]="input.type"
+    [placeholder]="input.placeholder"
+  >
+  </app-input-field>
+
+  <a href="#">Forgot your password?</a>
+  <button class="btn" type="submit">Log in</button>
+</form>

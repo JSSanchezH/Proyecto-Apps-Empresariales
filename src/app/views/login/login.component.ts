@@ -1,22 +1,33 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { TopbarComponent } from '../../shared/topbar/topbar.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { RegisterFormComponent } from './register-form/register-form.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [TopbarComponent],
+  imports: [
+    TopbarComponent,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    LoginFormComponent,
+    RegisterFormComponent,
+  ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
-  @ViewChild('loginContainer') loginContainer!: ElementRef;
+  isRegister = false;
 
-  toggleRegister(): void {
-    this.loginContainer.nativeElement.classList.add('toggle');
+  toggleRegister() {
+    this.isRegister = true;
   }
 
-  toggleSignIn(): void {
-    this.loginContainer.nativeElement.classList.remove('toggle');
+  toggleSignIn() {
+    this.isRegister = false;
   }
 
   ngOnInit(): void {
