@@ -17,6 +17,7 @@ import { EvaluationsComponent } from './views/evaluations/evaluations.component'
 import { HeadquartersComponent } from './views/headquarters/headquarters.component';
 import { EditHeadquarterComponent } from './views/edit-headquarter/edit-headquarter.component';
 import { RegisterHeadquarterComponent } from './views/register-headquarter/register-headquarter.component';
+import { DepartmentsComponent } from './views/departments/departments.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -38,5 +39,6 @@ export const routes: Routes = [
   { path: 'headquarters', component: HeadquartersComponent },
   { path: 'editHeadquarters', component: EditHeadquarterComponent },
   { path: 'registerHeadquarters', component: RegisterHeadquarterComponent },
+  { path: 'departments', component: DepartmentsComponent },
   
 ];
