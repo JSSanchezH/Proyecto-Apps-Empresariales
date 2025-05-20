@@ -1,0 +1,112 @@
+.departments {
+  display: grid;
+  min-height: 200px;
+  background: var(--white);
+  padding: 20px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  overflow: hidden;
+  gap: 20px;
+}
+
+.departments .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.departments .header h2 {
+  font-size: 1.8em;
+  color: var(--blue);
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.departments .pagination-controls {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.departments table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  text-align: left;
+}
+
+.departments table tr {
+  color: var(--black);
+  border-radius: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.departments table tr:hover {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.departments table th:hover {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.departments table tr:hover .btn-actions {
+  background: transparent;
+  color: white;
+  border-color: white;
+}
+
+.departments table tr:hover .btn-actions:hover {
+  background: var(--dark-blue);
+  color: white;
+  border-color: var(--dark-blue);
+}
+
+.departments table th,
+.departments table tr td {
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Column widths adapted for only 3 columns */
+.departments table th:nth-child(1),
+.departments table td:nth-child(1) {
+  width: 30%;
+}
+
+.departments table th:nth-child(2),
+.departments table td:nth-child(2) {
+  width: 30%;
+}
+
+.departments table th:nth-child(3),
+.departments table td:nth-child(3) {
+  width: 40%;
+}
+
+.btn-actions {
+  display: inline-block;
+  padding: 5px 10px;
+  border: 2px solid black;
+  color: black;
+  background: transparent;
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+
+.actions-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; 
+  flex-wrap: nowrap;
+  width: 100%;
+  text-align: center;
+}
