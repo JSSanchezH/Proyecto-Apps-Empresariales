@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import { TopbarComponent } from '../../shared/topbar/topbar.component';
 import { RegisterHeadquarterFormComponent } from './register-headquarter-form/register-headquarter-form.component';
 
 @Component({
   selector: 'app-register-headquarter',
   standalone: true,
-  imports: [RegisterHeadquarterComponent],
+  imports: [RegisterHeadquarterFormComponent, TopbarComponent],
   templateUrl: './register-headquarter.component.html',
   styleUrl: './register-headquarter.component.css'
 })
