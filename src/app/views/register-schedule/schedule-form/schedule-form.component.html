@@ -1,35 +1,20 @@
 <div class="schedule-form-container">
   <div class="container-form">
-    <form class="edit-schedule">
+    <form class="edit-schedule" (ngSubmit)="onSubmit()">
       <h2>Register Schedule</h2>
       <button type="button" class="close-btn" (click)="closeForm()">✖</button>
       <span>Fill the schedule information</span>
 
-      <label class="field-label">Start Time</label>
-      <div class="container-input">
-        <i class='bx bx-time'></i>
-        <input type="time" placeholder="Start Time">
-      </div>
+      <ng-container *ngFor="let field of fields">
+        <label class="field-label">{{ field.label }}</label>
+        <app-input-field
+          [iconClass]="field.icon"
+          [type]="field.type"
+          [placeholder]="field.placeholder"
+        ></app-input-field>
+      </ng-container>
 
-      <label class="field-label">End Time</label>
-      <div class="container-input">
-        <i class='bx bx-time'></i>
-        <input type="time" placeholder="End Time">
-      </div>
-
-      <label class="field-label">Break Start</label>
-      <div class="container-input">
-        <i class='bx bx-coffee'></i>
-        <input type="time" placeholder="Break Start">
-      </div>
-
-      <label class="field-label">Break End</label>
-      <div class="container-input">
-        <i class='bx bx-coffee'></i>
-        <input type="time" placeholder="Break End">
-      </div>
-
-      <button class="btn">Register</button>
+      <button class="btn" type="submit">Register</button>
     </form>
   </div>
 </div>
