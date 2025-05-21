@@ -13,4 +13,5 @@ export class InputFieldComponent {
   @Input() iconClass: string = '';
   @Input() type: string = 'text';
   @Input() placeholder: string = '';
+  @Input() options: string[] = []; // para el select, las opciones como array de strings
 }
