@@ -1,72 +1,18 @@
 <div class="headquarter-container">
   <div class="container-form">
-    <form action="" class="edit-headquarter">
+    <form class="edit-headquarter" (ngSubmit)="onSubmit()">
       <h2>Edit Headquarter Info</h2>
       <span>Fill the fields to edit the information</span>
 
-      <label class="field-label">Name</label>
-      <div class="container-input">
-        <i class='bx bx-user'></i>
-        <input type="text" placeholder="Full Name" name="name">
-      </div>
+      <app-input-field
+        *ngFor="let field of fields"
+        [iconClass]="field.icon"
+        [type]="field.type"
+        [placeholder]="field.placeholder"
+        [options]="field.options || []"
+      ></app-input-field>
 
-      <label class="field-label">Address</label>
-      <div class="container-input">
-        <i class='bx bx-map'></i>
-        <input type="text" placeholder="Address" name="address">
-      </div>
-
-      <label class="field-label">Phone</label>
-      <div class="container-input">
-        <i class='bx bx-phone'></i>
-        <input type="tel" placeholder="Phone Number" name="phone">
-      </div>
-
-      <label class="field-label">City</label>
-      <div class="container-input">
-        <i class='bx bx-buildings'></i>
-        <select name="city">
-          <option value="" disabled selected>Select City</option>
-          <option value="new-york">New York</option>
-          <option value="los-angeles">Los Angeles</option>
-          <option value="london">London</option>
-        </select>
-      </div>
-
-      <label class="field-label">State</label>
-      <div class="container-input">
-        <i class='bx bx-map-pin'></i>
-        <select name="state">
-          <option value="" disabled selected>Select State</option>
-          <option value="california">California</option>
-          <option value="texas">Texas</option>
-          <option value="florida">Florida</option>
-        </select>
-      </div>
-
-      <label class="field-label">Country</label>
-      <div class="container-input">
-        <i class='bx bx-flag'></i>
-        <select name="country">
-          <option value="" disabled selected>Select Country</option>
-          <option value="usa">USA</option>
-          <option value="uk">UK</option>
-          <option value="canada">Canada</option>
-        </select>
-      </div>
-
-      <label class="field-label">Continent</label>
-      <div class="container-input">
-        <i class='bx bx-globe'></i>
-        <select name="continent">
-          <option value="" disabled selected>Select Continent</option>
-          <option value="north-america">North America</option>
-          <option value="europe">Europe</option>
-          <option value="asia">Asia</option>
-        </select>
-      </div>
-
-      <button class="btn">Edit</button>
+      <button class="btn" type="submit">Edit</button>
     </form>
   </div>
 
@@ -79,4 +25,3 @@
     </div>
   </div>
 </div>
-
