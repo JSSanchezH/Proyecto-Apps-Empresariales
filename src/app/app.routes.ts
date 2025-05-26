@@ -18,6 +18,8 @@ import { HeadquartersComponent } from './views/headquarters/headquarters.compone
 import { EditHeadquarterComponent } from './views/edit-headquarter/edit-headquarter.component';
 import { RegisterHeadquarterComponent } from './views/register-headquarter/register-headquarter.component';
 import { DepartmentsComponent } from './views/departments/departments.component';
+import { EditDeparmentComponent } from './views/edit-deparment/edit-deparment.component';
+import { RegisterDeparmentComponent } from './views/register-deparment/register-deparment.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -40,5 +42,6 @@ export const routes: Routes = [
   { path: 'editHeadquarters', component: EditHeadquarterComponent },
   { path: 'registerHeadquarters', component: RegisterHeadquarterComponent },
   { path: 'departments', component: DepartmentsComponent },
-  
+  { path: 'editDeparments', component: EditDeparmentComponent },  
+  { path: 'registerDepartment', component: RegisterDeparmentComponent }, 
 ];

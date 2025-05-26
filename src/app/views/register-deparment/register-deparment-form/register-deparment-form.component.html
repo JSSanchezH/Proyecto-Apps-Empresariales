@@ -1,8 +1,8 @@
-<div class="headquarter-container">
+<div class="department-container">
   <div class="container-form">
-    <form class="edit-headquarter" (ngSubmit)="onSubmit()">
-      <h2>Edit Headquarter Info</h2>
-      <span>Fill the fields to edit the information</span>
+    <form class="edit-department" (ngSubmit)="onSubmit()">
+      <h2>Register Department</h2>
+      <span>Fill the fields to register the department</span>
 
       <app-input-field
         *ngFor="let field of fields"
@@ -12,15 +12,15 @@
         [options]="field.options || []"
       ></app-input-field>
 
-      <button class="btn" type="submit">Edit</button>
+      <button class="btn" type="submit">Register</button>
     </form>
   </div>
 
   <div class="info-container">
     <div class="info">
-      <h3>Edit Headquarter Info</h3>
+      <h3>Register Department</h3>
       <p>
-        Here you can edit headquarter details. Please make sure to fill in all the fields correctly.
+        Here you can register a new department. Please make sure to fill in all the fields correctly.
       </p>
     </div>
   </div>

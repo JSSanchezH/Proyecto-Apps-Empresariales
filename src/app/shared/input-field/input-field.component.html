@@ -1,4 +1,15 @@
 <div class="container-input">
   <i [class]="iconClass"></i>
-  <input [type]="type" [placeholder]="placeholder" required />
+  
+  <ng-container *ngIf="type !== 'select'; else selectTemplate">
+    <input [type]="type" [placeholder]="placeholder" required />
+  </ng-container>
+
+  <ng-template #selectTemplate>
+    <select required>
+      <option value="" disabled selected>{{ placeholder }}</option>
+      <option *ngFor="let option of options" [value]="option">{{ option }}</option>
+    </select>
+  </ng-template>
+  
 </div>

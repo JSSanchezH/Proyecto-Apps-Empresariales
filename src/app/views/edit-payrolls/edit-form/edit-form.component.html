@@ -1,46 +1,18 @@
 <div class="payroll-container">
   <div class="container-form">
-    <form action="" class="edit-payroll">
+    <form class="edit-payroll" (ngSubmit)="onSubmit()">
       <h2>Edit Payment</h2>
       <span>Fill the fields to edit the payment</span>
 
-      <label class="field-label">Payment Date</label>
-      <div class="container-input">
-        <i class='bx bx-calendar'></i>
-        <input type="date" placeholder="Payment Date">
-      </div>
+      <app-input-field
+        *ngFor="let field of fields"
+        [iconClass]="field.icon"
+        [type]="field.type"
+        [placeholder]="field.placeholder"
+        [options]="field.options || []"
+      ></app-input-field>
 
-      <label class="field-label">Base Salary</label>
-      <div class="container-input">
-        <i class='bx bx-dollar'></i>
-        <input type="number" placeholder="Base Salary">
-      </div>
-
-      <label class="field-label">Bonuses</label>
-      <div class="container-input">
-        <i class='bx bx-gift'></i>
-        <input type="number" placeholder="Bonuses">
-      </div>
-
-      <label class="field-label">Total Payment</label>
-      <div class="container-input">
-        <i class='bx bx-calculator'></i>
-        <input type="number" placeholder="Total Payment">
-      </div>
-
-      <label class="field-label">Payment Method</label>
-      <div class="container-input">
-        <i class='bx bx-credit-card'></i>
-        <select>
-          <option value="" disabled selected>Select Method</option>
-          <option value="bank_transfer">Bank Transfer</option>
-          <option value="cash">Cash</option>
-          <option value="check">Check</option>
-          <option value="crypto">Cryptocurrency</option>
-        </select>
-      </div>
-
-      <button class="btn">Edit</button>
+      <button class="btn" type="submit">Edit</button>
     </form>
   </div>
 
