@@ -29,10 +29,10 @@
     </thead>
     <tbody>
       <tr *ngFor="let employee of displayedEmployees">
-        <td>{{ employee.name }}</td>
+        <td>{{ employee.firstname }}</td>
         <td>{{ employee.id }}</td>
-        <td>{{ employee.department }}</td>
-        <td>{{ employee.role }}</td>
+        <td>{{ employee.department.headquarter.name }}</td>
+        <td>{{ employee.role.name }}</td>
         <td>
           <a href="/evaluations" class="btn-actions">Evaluate</a>
           <a href="#" class="btn-actions">Generate Report</a>
