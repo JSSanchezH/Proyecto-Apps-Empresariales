@@ -1,4 +1,4 @@
-<form class="sign-in">
+<form class="sign-in" [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
   <h2>Log in</h2>
   <div class="social-networks">
     <i class="bx bxl-google"></i>
@@ -11,9 +11,22 @@
     [iconClass]="input.iconClass"
     [type]="input.type"
     [placeholder]="input.placeholder"
+    [formControlName]="input.name"
+    [control]="loginForm.get(input.name)"
   >
   </app-input-field>
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
 
   <a href="#">Forgot your password?</a>
-  <button class="btn" type="submit">Log in</button>
+
+  <button
+    class="btn"
+    type="submit"
+    [disabled]="loginForm.invalid"
+    (mouseenter)="markAllAsTouched()"
+  >
+    Log in
+  </button>
 </form>
