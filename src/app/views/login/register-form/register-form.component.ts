@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -18,6 +18,9 @@ import { InputFieldComponent } from '../../../shared/input-field/input-field.com
   styleUrl: './register-form.component.css',
 })
 export class RegisterFormComponent {
+  
+  @Output() registerSuccess = new EventEmitter<void>();
+
   fields = [
     {
       icon: 'bx bx-buildings',
@@ -112,9 +115,11 @@ export class RegisterFormComponent {
 
     this.authService.register(payload).subscribe({
       next: (response) => {
+        this.registerSuccess.emit();
+        this.registerForm.reset();
+         // Emitir evento de éxito
         // console.log('Registration successful:', response);
 
-        this.registerForm.reset();
       },
       error: (error) => {
         // console.error('Registration failed:', error);
