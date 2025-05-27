@@ -165,6 +165,18 @@ export class EmployeeDetailsComponent {
     });
   }
 
+  dismissEmployee(employee: Employee) {
+    const updatedEmployee = { ...employee, status: false };
+
+    this.employeeService.dismissEmployee(updatedEmployee).subscribe({
+      next: () => {
+        employee.status = false; // Actualiza la UI
+      },
+      error: (error) => {
+        console.error('Error dismissing employee:', error);
+      },
+    });
+  }
   loadMore() {
     const nextCount = this.displayedEmployees.length + 5;
     this.displayedEmployees = this.employees.slice(0, nextCount);

@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { AuthService } from './auth.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -14,10 +15,22 @@ export class EmployeeService {
       'x-api-key': apiKey || '',
     });
   }
-
+  private apiUrl = 'http://localhost:8009/employees';
   getCompanyData() {
     const apiKey = this.authService.getApiKey();
-    return this.http.get('http://localhost:8009/employees', {
+    return this.http.get(this.apiUrl, {
+      headers: this.getHeaders(),
+    });
+  }
+
+  updateEmployee(employee: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/${employee.id}`, employee, {
+      headers: this.getHeaders(),
+    });
+  }
+
+  dismissEmployee(employee: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/${employee.id}`, employee, {
       headers: this.getHeaders(),
     });
   }

@@ -28,18 +28,22 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let employee of displayedEmployees">
-        <td>{{ employee.firstname }} {{ employee.lastname }}</td>
-        <td>{{ employee.id }}</td>
-        <td>{{ employee.department.headquarter.name }}</td>
-        <td>{{ employee.role.name }}</td>
-        <td>
-          <a href="/evaluations" class="btn-actions">Evaluate</a>
-          <a href="#" class="btn-actions">Generate Report</a>
-          <a href="/EditEmployee" class="btn-actions">Edit</a>
-          <a href="#" class="btn-actions">Dissmis</a>
-        </td>
-      </tr>
+      <ng-container *ngFor="let employee of displayedEmployees">
+        <tr *ngIf="employee.status">
+          <td>{{ employee.firstname }} {{ employee.lastname }}</td>
+          <td>{{ employee.id }}</td>
+          <td>{{ employee.department.headquarter.name }}</td>
+          <td>{{ employee.role.name }}</td>
+          <td>
+            <a href="/evaluations" class="btn-actions">Evaluate</a>
+            <a href="#" class="btn-actions">Generate Report</a>
+            <a href="/EditEmployee" class="btn-actions">Edit</a>
+            <a (click)="dismissEmployee(employee)" class="btn-actions"
+              >Dissmis</a
+            >
+          </td>
+        </tr>
+      </ng-container>
     </tbody>
   </table>
 </div>
