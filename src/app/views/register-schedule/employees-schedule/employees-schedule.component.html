@@ -1,0 +1,44 @@
+<div class="employees">
+  <div class="header">
+    <h2>Employees</h2>
+
+    <div class="pagination-controls">
+      <app-button
+        (click)="loadLess()"
+        *ngIf="displayedEmployees.length > initialEmployeeCount"
+        [buttonText]="'View less'"
+        [buttonSize]="'medium'"
+      ></app-button>
+      <app-button
+        (click)="loadMore()"
+        *ngIf="displayedEmployees.length < employees.length"
+        [buttonText]="'View more'"
+        [buttonSize]="'medium'"
+      ></app-button>
+    </div>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>ID</th>
+        <th>Department</th>
+        <th>Role</th>
+        <th>Assign Schedule</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of displayedEmployees">
+        <td>{{ employee.name }}</td>
+        <td>{{ employee.id }}</td>
+        <td>{{ employee.department }}</td>
+        <td>{{ employee.role }}</td>
+        <td class="actions-cell">
+          <button class="assign-button" (click)="assignSchedule(employee)">
+            ✔ Assign
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,29 @@
+<div class="container">
+  <app-topbar [isVisible]="false"></app-topbar>
+
+  <div #loginContainer class="login-container" [class.toggle]="isRegister">
+    <div class="container-form login-form" [class.active]="!isRegister">
+      <app-login-form></app-login-form>
+    </div>
+
+    <div class="container-form register-form" [class.active]="isRegister">
+      <app-register-form (registerSuccess)="handleRegisterSuccess()"></app-register-form>
+    </div>
+
+    <div class="container-welcome">
+      <div class="welcome-register welcome">
+        <h3>Welcome!</h3>
+        <p>Enter your details to access the website</p>
+        <button class="btn" (click)="toggleRegister()">Register</button>
+      </div>
+      <div class="welcome-sign-in welcome">
+        <h3>Hello!</h3>
+        <p>Register your details to access the website</p>
+        <button class="btn" (click)="toggleSignIn()">Log in</button>
+      </div>
+    </div>
+  </div>
+
+  <app-register-successfully *ngIf="isRegisterSuccessful"></app-register-successfully>
+  
+</div>

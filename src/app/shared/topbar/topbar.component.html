@@ -1,0 +1,19 @@
+<div class="topbar">
+  <div class="toggle">
+    <i class="bx bx-menu"></i>
+  </div>
+
+  <div class="search" *ngIf="isVisible">
+    <label>
+      <input type="text" placeholder="Search..." />
+      <i class="bx bx-search-alt-2"></i>
+    </label>
+  </div>
+
+  <div class="user-profile" *ngIf="isVisible">
+    <img
+      src="https://concepto.de/wp-content/uploads/2018/08/persona-e1533759204552.jpg"
+      alt=""
+    />
+  </div>
+</div>

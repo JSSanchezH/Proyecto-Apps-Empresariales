@@ -1,0 +1,27 @@
+<div class="headquarter-container">
+  <div class="container-form">
+    <form class="edit-headquarter" (ngSubmit)="onSubmit()">
+      <h2>Edit Headquarter Info</h2>
+      <span>Fill the fields to edit the information</span>
+
+      <app-input-field
+        *ngFor="let field of fields"
+        [iconClass]="field.icon"
+        [type]="field.type"
+        [placeholder]="field.placeholder"
+        [options]="field.options || []"
+      ></app-input-field>
+
+      <button class="btn" type="submit">Edit</button>
+    </form>
+  </div>
+
+  <div class="info-container">
+    <div class="info">
+      <h3>Edit Headquarter Info</h3>
+      <p>
+        Here you can edit headquarter details. Please make sure to fill in all the fields correctly.
+      </p>
+    </div>
+  </div>
+</div>

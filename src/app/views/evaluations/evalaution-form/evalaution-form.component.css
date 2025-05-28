@@ -1,0 +1,135 @@
+.evaluation-container {
+  width: 1100px;
+  height: 800px;
+  position: absolute;
+  top: 53%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  background-color: var(--white);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.container-form {
+  width: 50%;
+  padding-left: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-form form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s ease-in;
+}
+
+.container-form h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.container-form span {
+  font-size: 12px;
+  margin-bottom: 15px;
+}
+
+.container-input {
+  width: 300px;
+  height: 40px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 15px;
+  background-color: #EEEEEE;
+  border-radius: 6px;
+}
+
+.container-input.textarea {
+  height: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.container-input input,
+.container-input select,
+.container-input textarea {
+  border: none;
+  outline: none;
+  width: 100%;
+  background-color: inherit;
+  font-family: inherit;
+  font-size: 14px;
+  color: #333;
+}
+
+.container-input textarea {
+  resize: none;
+  height: 80px;
+}
+
+.container-input select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 0 5px;
+  cursor: pointer;
+}
+
+.btn {
+  width: 170px;
+  height: 45px;
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+.btn:hover {
+  background-color: var(--dark-blue);
+}
+
+.info-container {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  background-color: var(--blue);
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s ease-in-out, border-radius 0.5s ease-in-out;
+  transform: translateX(100%);
+  overflow: hidden;
+  border-radius: 50% 0 0 50%;
+}
+
+.info-container h3 {
+  font-size: 40px;
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--white);
+}
+
+.info-container p {
+  font-size: 20px;
+  text-align: center;
+  color: var(--white);
+}
+
+.field-label {
+  align-self: flex-start;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 5px;
+  margin-top: 10px;
+  font-weight: bold;
+}

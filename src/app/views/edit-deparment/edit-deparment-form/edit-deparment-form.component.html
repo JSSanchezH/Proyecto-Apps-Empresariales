@@ -1,0 +1,27 @@
+<div class="department-container">
+  <div class="container-form">
+    <form class="edit-department" (ngSubmit)="onSubmit()">
+      <h2>Edit Department</h2>
+      <span>Fill the fields to edit the department</span>
+
+      <app-input-field
+        *ngFor="let field of fields"
+        [iconClass]="field.icon"
+        [type]="field.type"
+        [placeholder]="field.placeholder"
+        [options]="field.options || []"
+      ></app-input-field>
+
+      <button class="btn" type="submit">Edit</button>
+    </form>
+  </div>
+
+  <div class="info-container">
+    <div class="info">
+      <h3>Edit Department</h3>
+      <p>
+        Here you can edit the department information. Please make sure to fill in all the fields correctly.
+      </p>
+    </div>
+  </div>
+</div>

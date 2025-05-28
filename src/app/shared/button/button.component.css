@@ -1,0 +1,40 @@
+.btn {
+  padding: 10px 20px;
+  background: var(--blue);
+  color: var(--white);
+  border: none;
+
+  cursor: pointer;
+  font-size: 0.9em;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-align: center;
+  display: inline-block;
+}
+
+.btn:hover {
+  background: var(--dark-blue);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(22, 73, 121, 0.3);
+}
+
+/* Variaciones de tamaño */
+
+.btn.small {
+  padding: 5px 10px;
+  font-size: 0.8em;
+  border-radius: 2.5px;
+}
+
+.btn.medium {
+  padding: 10px 20px;
+  font-size: 0.9em;
+  border-radius: 5px;
+}
+
+.btn.large {
+  padding: 15px 30px;
+  font-size: 1.2em;
+  border-radius: 10px;
+}

@@ -1,0 +1,19 @@
+<div class="absence-form-container">
+  <div class="container-form">
+    <form class="edit-absence" (ngSubmit)="onSubmit()">
+      <h2>Register Absence</h2>
+      <button type="button" class="close-btn" (click)="closeForm()">✖</button>
+      <span>Fill the Absence information</span>
+
+      <app-input-field
+        *ngFor="let field of fields"
+        [iconClass]="field.icon"
+        [type]="field.type"
+        [placeholder]="field.placeholder"
+        [options]="field.options || []"
+      ></app-input-field>
+
+      <button class="btn" type="submit">Register</button>
+    </form>
+  </div>
+</div>

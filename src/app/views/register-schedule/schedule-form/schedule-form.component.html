@@ -1,0 +1,20 @@
+<div class="schedule-form-container">
+  <div class="container-form">
+    <form class="edit-schedule" (ngSubmit)="onSubmit()">
+      <h2>Register Schedule</h2>
+      <button type="button" class="close-btn" (click)="closeForm()">✖</button>
+      <span>Fill the schedule information</span>
+
+      <ng-container *ngFor="let field of fields">
+        <label class="field-label">{{ field.label }}</label>
+        <app-input-field
+          [iconClass]="field.icon"
+          [type]="field.type"
+          [placeholder]="field.placeholder"
+        ></app-input-field>
+      </ng-container>
+
+      <button class="btn" type="submit">Register</button>
+    </form>
+  </div>
+</div>

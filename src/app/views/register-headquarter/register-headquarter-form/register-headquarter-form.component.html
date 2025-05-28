@@ -1,0 +1,27 @@
+<div class="headquarter-container">
+  <div class="container-form">
+    <form class="edit-headquarter" (ngSubmit)="onSubmit()">
+      <h2>Register Headquarter</h2>
+      <span>Fill the fields to register the information</span>
+
+      <app-input-field
+        *ngFor="let field of fields"
+        [iconClass]="field.icon"
+        [type]="field.type"
+        [placeholder]="field.placeholder"
+        [options]="field.options || []"
+      ></app-input-field>
+
+      <button class="btn" type="submit">Register</button>
+    </form>
+  </div>
+
+  <div class="info-container">
+    <div class="info">
+      <h3>Register Headquarter Info</h3>
+      <p>
+        Here you can register headquarter details. Please make sure to fill in all the fields correctly.
+      </p>
+    </div>
+  </div>
+</div>

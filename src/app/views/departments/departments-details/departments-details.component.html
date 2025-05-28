@@ -1,0 +1,32 @@
+<div class="departments">
+    <div class="header">
+        <h2>Departments</h2>
+
+        <div class="pagination-controls">
+            <app-button (click)="loadLessDepartments()" *ngIf="displayedDepartments.length > initialDepartmentsCount"
+                [buttonText]="'View less'" [buttonSize]="'medium'"></app-button>
+            <app-button (click)="loadMoreDepartments()" *ngIf="displayedDepartments.length < departments.length"
+                [buttonText]="'View more'" [buttonSize]="'medium'"></app-button>
+        </div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Headquarter</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let department of displayedDepartments">
+                <td>{{ department.name }}</td>
+                <td>{{ department.headquarter }}</td>
+                <td class="actions-cell">
+                    <a href="editDeparments" class="btn-actions">Edit</a>
+                    <a href="#" class="btn-actions">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,27 @@
+<form class="register" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <h2>Register</h2>
+  <div class="social-networks">
+    <i class="bx bxl-google"></i>
+    <i class="bx bxl-github"></i>
+  </div>
+  <span>Sign up to start using RRHHAI!</span>
+  <app-input-field
+    *ngFor="let field of fields"
+    [iconClass]="field.icon"
+    [type]="field.type"
+    [placeholder]="field.placeholder"
+    [formControlName]="field.name"
+    [control]="registerForm.get(field.name)"
+  ></app-input-field>
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+  <button
+    class="btn"
+    type="submit"
+    [disabled]="registerForm.invalid"
+    (mouseenter)="markAllAsTouched()"
+  >
+    Register
+  </button>
+</form>

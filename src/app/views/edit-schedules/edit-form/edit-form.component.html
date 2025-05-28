@@ -1,0 +1,28 @@
+<div class="schedule-container">
+  <div class="container-form">
+    <form class="edit-schedule" (ngSubmit)="onSubmit()">
+      <h2>Edit Schedule</h2>
+      <span>Fill the fields to edit the schedule</span>
+
+      <ng-container *ngFor="let field of fields">
+        <label class="field-label">{{ field.label }}</label>
+        <app-input-field
+          [iconClass]="field.icon"
+          [type]="field.type"
+          [placeholder]="field.placeholder"
+        ></app-input-field>
+      </ng-container>
+
+      <button class="btn" type="submit">Register</button>
+    </form>
+  </div>
+
+  <div class="info-container">
+    <div class="info">
+      <h3>Edit Schedule</h3>
+      <p>
+        Here you can edit the schedules information. Please make sure to fill in all the fields correctly.
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="container-input">
+  <i [class]="iconClass"></i>
+
+  <ng-container *ngIf="type !== 'select'; else selectTemplate">
+    <input
+      [type]="type"
+      [placeholder]="placeholder"
+      [disabled]="disabled"
+      [value]="value"
+      (input)="onInput($event)"
+      required
+    />
+    <small *ngIf="control?.invalid && control?.touched" class="error-message">
+      <span *ngIf="control?.errors?.['required']">This field is required</span>
+      <span *ngIf="control?.errors?.['email']">Enter a valid email</span>
+      <span *ngIf="control?.errors?.['pattern']">Only numbers are allowed</span>
+      <span *ngIf="control?.errors?.['minlength']">Minimum length not met</span>
+    </small>
+  </ng-container>
+
+  <ng-template #selectTemplate>
+    <select
+      [disabled]="disabled"
+      (change)="onInput($event)"
+      [value]="value"
+      required
+    >
+      <option value="" disabled>{{ placeholder }}</option>
+      <option *ngFor="let option of options" [value]="option">
+        {{ option }}
+      </option>
+    </select>
+  </ng-template>
+</div>

@@ -1,0 +1,53 @@
+.dashboard-preview {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 50px;
+  padding: 30px;
+  background: var(--grey);
+  border-radius: 10px;
+  flex-wrap: wrap;
+}
+
+.preview-text {
+  flex: 1;
+}
+
+.preview-text h2 {
+  color: var(--black);
+  margin-bottom: 15px;
+  font-size: 1.5em;
+}
+
+.preview-text p {
+  color: var(--black2);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.register-btn {
+  padding: 10px 20px;
+  background: var(--blue);
+  color: var(--white);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background 0.3s;
+}
+
+.register-btn:hover {
+  background: var(--dark-blue);
+}
+
+.preview-image {
+  flex: 1;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.preview-image img {
+  width: 100%;
+  display: block;
+}

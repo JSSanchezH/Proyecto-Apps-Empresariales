@@ -1,0 +1,82 @@
+.register-schedule {
+  position: relative;
+  display: grid;
+  min-height: 500px;
+  background: var(--white);
+  padding: 20px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.header h2 {
+  font-size: 1.8em;
+  color: var(--blue);
+}
+
+.register-schedule {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 500px;
+  background: var(--white);
+  padding: 20px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+}
+
+.register-schedule .center-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  gap: 40px;
+}
+
+.register-schedule .icon {
+  margin-top: 100px;
+  font-size: 10em;
+  color: var(--dark-blue);
+  animation: float 3s infinite ease-in-out;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.register-schedule .button-container {
+  margin-bottom: 20px;
+}
+
+.register-schedule .btn-register {
+  padding: 15px 30px;
+  background: var(--blue);
+  color: var(--white);
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1em;
+  transition: all 0.3s ease;
+  text-align: center;
+  display: inline-block;
+}
+
+.register-schedule .btn-register:hover {
+  background: var(--dark-blue);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(22, 73, 121, 0.3);
+}

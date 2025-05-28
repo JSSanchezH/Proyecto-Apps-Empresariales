@@ -1,0 +1,51 @@
+<div class="employees">
+  <div class="header">
+    <h2>Employees</h2>
+
+    <div class="pagination-controls">
+      <app-button
+        (click)="loadLess()"
+        *ngIf="displayedEmployees.length > initialEmployeeCount"
+        [buttonText]="'View less'"
+        [buttonSize]="'medium'"
+      ></app-button>
+      <app-button
+        (click)="loadMore()"
+        *ngIf="displayedEmployees.length < employees.length"
+        [buttonText]="'View more'"
+        [buttonSize]="'medium'"
+      ></app-button>
+    </div>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>ID</th>
+        <th>Department</th>
+        <th>Role</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let employee of displayedEmployees">
+        <tr *ngIf="employee.status">
+          <td>{{ employee.firstname }} {{ employee.lastname }}</td>
+          <td>{{ employee.id }}</td>
+          <td>{{ employee.department.name }}</td>
+          <td>{{ employee.role.name }}</td>
+          <td>
+            <a href="/evaluations" class="btn-actions">Evaluate</a>
+            <a href="#" class="btn-actions">Generate Report</a>
+            <a [routerLink]="['/editEmployee', employee.id]" class="btn-actions"
+              >Edit</a
+            >
+            <a (click)="dismissEmployee(employee)" class="btn-actions"
+              >Dissmis</a
+            >
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>

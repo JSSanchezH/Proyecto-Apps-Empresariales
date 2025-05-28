@@ -1,0 +1,27 @@
+<div class="department-container">
+  <div class="container-form">
+    <form class="edit-department" (ngSubmit)="onSubmit()">
+      <h2>Register Department</h2>
+      <span>Fill the fields to register the department</span>
+
+      <app-input-field
+        *ngFor="let field of fields"
+        [iconClass]="field.icon"
+        [type]="field.type"
+        [placeholder]="field.placeholder"
+        [options]="field.options || []"
+      ></app-input-field>
+
+      <button class="btn" type="submit">Register</button>
+    </form>
+  </div>
+
+  <div class="info-container">
+    <div class="info">
+      <h3>Register Department</h3>
+      <p>
+        Here you can register a new department. Please make sure to fill in all the fields correctly.
+      </p>
+    </div>
+  </div>
+</div>

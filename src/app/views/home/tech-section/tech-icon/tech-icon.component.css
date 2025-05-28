@@ -1,0 +1,16 @@
+.tech-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.tech-icon i {
+  font-size: 2.5em;
+  color: var(--blue);
+}
+
+.tech-icon span {
+  font-size: 0.8em;
+  color: var(--black2);
+}

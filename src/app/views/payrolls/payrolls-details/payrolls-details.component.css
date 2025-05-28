@@ -1,0 +1,133 @@
+.payrolls {
+  display: grid;
+  min-height: 200px;
+  background: var(--white);
+  padding: 20px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  overflow: hidden;
+  gap: 20px;
+}
+
+.payrolls .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.payrolls .header h2 {
+  font-size: 1.8em;
+  color: var(--blue);
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.payrolls .pagination-controls {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  text-align: left;
+}
+
+.payrolls table tr {
+  color: var(--black);
+  border-radius: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.payrolls table tr:hover {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.payrolls table th:hover {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.payrolls table tr:hover .btn-actions {
+  background: transparent;
+  color: white;
+  border-color: white;
+}
+
+.payrolls table tr:hover .btn-actions:hover {
+  background: var(--dark-blue);
+  color: white;
+  border-color: var(--dark-blue);
+}
+
+.payrolls table th,
+.payrolls table tr td {
+  padding: 10px;
+  border-radius: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.payrolls table th,
+.payrolls table td {
+  border-radius: 8px;
+}
+
+.payrolls table th:nth-child(1),
+.payrolls table td:nth-child(1),
+.payrolls table th:nth-child(2),
+.payrolls table td:nth-child(2),
+.payrolls table th:nth-child(3),
+.payrolls table td:nth-child(3),
+.payrolls table th:nth-child(4),
+.payrolls table td:nth-child(4),
+.payrolls table th:nth-child(5),
+.payrolls table td:nth-child(5) {
+  text-align: center;
+}
+
+.payrolls table th:nth-child(1),
+.payrolls table td:nth-child(1) {
+  width: 15%;
+}
+
+.payrolls table th:nth-child(2),
+.payrolls table td:nth-child(2) {
+  width: 15%;
+}
+
+.payrolls table th:nth-child(3),
+.payrolls table td:nth-child(3) {
+  width: 12.5%;
+}
+
+.payrolls table th:nth-child(4),
+.payrolls table td:nth-child(4) {
+  width: 12.5%;
+}
+
+.payrolls table th:nth-child(5),
+.payrolls table td:nth-child(5) {
+  width: 40%;
+}
+
+.btn-actions {
+  display: inline-block;
+  padding: 5px 10px;
+  border: 2px solid black;
+  color: black;
+  background: transparent;
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.actions-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}

@@ -1,3 +1,47 @@
 import { Routes } from '@angular/router';
+import { HomeComponent } from './views/home/home.component';
+import { LoginComponent } from './views/login/login.component';
+import { DashboardComponent } from './views/dashboard/dashboard.component';
+import { EmployeesComponent } from './views/employees/employees.component';
+import { RegisterEmployeeComponent } from './views/register-employee/register-employee.component';
+import { SchedulesComponent } from './views/schedules/schedules.component';
+import { RegisterScheduleComponent } from './views/register-schedule/register-schedule.component';
+import { EditSchedulesComponent } from './views/edit-schedules/edit-schedules.component';
+import { PayrollsComponent } from './views/payrolls/payrolls.component';
+import { RegisterPayrollsComponent } from './views/register-payrolls/register-payrolls.component';
+import { EditPayrollsComponent } from './views/edit-payrolls/edit-payrolls.component';
+import { AbsencesComponent } from './views/absences/absences.component';
+import { RegisterAbsencesComponent } from './views/register-absences/register-absences.component';
+import { EditAbsencesComponent } from './views/edit-absences/edit-absences.component';
+import { EvaluationsComponent } from './views/evaluations/evaluations.component';
+import { HeadquartersComponent } from './views/headquarters/headquarters.component';
+import { EditHeadquarterComponent } from './views/edit-headquarter/edit-headquarter.component';
+import { RegisterHeadquarterComponent } from './views/register-headquarter/register-headquarter.component';
+import { DepartmentsComponent } from './views/departments/departments.component';
+import { EditDeparmentComponent } from './views/edit-deparment/edit-deparment.component';
+import { RegisterDeparmentComponent } from './views/register-deparment/register-deparment.component';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'editEmployee/:id', component: EmployeesComponent },
+  { path: 'registerEmployee', component: RegisterEmployeeComponent },
+  { path: 'schedules', component: SchedulesComponent },
+  { path: 'registerSchedules', component: RegisterScheduleComponent },
+  { path: 'editSchedules', component: EditSchedulesComponent },
+  { path: 'payrolls', component: PayrollsComponent },
+  { path: 'registerPayrolls', component: RegisterPayrollsComponent },
+  { path: 'editPayrolls', component: EditPayrollsComponent },
+  { path: 'absences', component: AbsencesComponent },
+  { path: 'registerAbsences', component: RegisterAbsencesComponent },
+  { path: 'editAbsences', component: EditAbsencesComponent },
+  { path: 'evaluations', component: EvaluationsComponent },
+  { path: 'headquarters', component: HeadquartersComponent },
+  { path: 'editHeadquarters', component: EditHeadquarterComponent },
+  { path: 'registerHeadquarters', component: RegisterHeadquarterComponent },
+  { path: 'departments', component: DepartmentsComponent },
+  { path: 'editDeparments', component: EditDeparmentComponent },
+  { path: 'registerDepartment', component: RegisterDeparmentComponent },
+];
