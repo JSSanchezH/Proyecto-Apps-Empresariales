@@ -66,7 +66,7 @@ export class EmployeeService {
   }
   //------------------------------------------ Headquarters ------------------------------------------
 
-  getHeadquarters(): Observable<string[]> {
+  getHeadquarters(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/headquarters`, {
       headers: this.getHeaders(),
     });
@@ -74,12 +74,9 @@ export class EmployeeService {
   //------------------------------------------ Deparments ------------------------------------------
 
   getDepartmentById(departmentId: number): Observable<any> {
-    return this.http.get(
-      `${this.apiUrl}/departments/headquarter/${departmentId}`,
-      {
-        headers: this.getHeaders(),
-      }
-    );
+    return this.http.get(`${this.apiUrl}/departments/${departmentId}`, {
+      headers: this.getHeaders(),
+    });
   }
   getDepartmentsByHeadquarter(
     headquarterId: number
@@ -99,5 +96,21 @@ export class EmployeeService {
     return this.http.get<any[]>(`${this.apiUrl}/departments`, {
       headers: this.getHeaders(),
     });
+  }
+
+  deleteDepartment(id: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/departments/${id}`, {
+      headers: this.getHeaders(),
+    });
+  }
+
+  updateDepartment(department: any): Observable<any> {
+    return this.http.put(
+      `${this.apiUrl}/departments/${department.id}`,
+      department,
+      {
+        headers: this.getHeaders(),
+      }
+    );
   }
 }

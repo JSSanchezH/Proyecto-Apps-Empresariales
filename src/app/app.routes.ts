@@ -42,6 +42,6 @@ export const routes: Routes = [
   { path: 'editHeadquarters', component: EditHeadquarterComponent },
   { path: 'registerHeadquarters', component: RegisterHeadquarterComponent },
   { path: 'departments', component: DepartmentsComponent },
-  { path: 'editDeparments', component: EditDeparmentComponent },
+  { path: 'editDepartments/:id', component: EditDeparmentComponent },
   { path: 'registerDepartment', component: RegisterDeparmentComponent },
 ];

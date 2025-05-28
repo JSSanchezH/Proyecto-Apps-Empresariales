@@ -32,10 +32,10 @@
     <tbody>
       <tr *ngFor="let headquarter of displayedHeadquarters">
         <td>{{ headquarter.name }}</td>
-        <td>{{ headquarter.addres }}</td>
+        <td>{{ headquarter.address }}</td>
         <td>{{ headquarter.phone }}</td>
-        <td>{{ headquarter.city }}</td>
-        <td>{{ headquarter.company }}</td>
+        <td>{{ headquarter.city.name }}</td>
+        <td>{{ headquarter.company.name }}</td>
         <td class="actions-cell">
           <a href="/editHeadquarters" class="btn-actions">Edit</a>
           <a href="#" class="btn-actions">Delete</a>
