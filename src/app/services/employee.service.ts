@@ -113,4 +113,11 @@ export class EmployeeService {
       }
     );
   }
+
+  createDepartment(department: any) {
+    return this.http.post(`${this.apiUrl}/departments`, department, {
+      headers: this.getHeaders(),
+      responseType: 'text',
+    });
+  }
 }
