@@ -34,4 +34,10 @@ export class EmployeeService {
       headers: this.getHeaders(),
     });
   }
+
+  registerEmployee(employee: any): Observable<any> {
+    return this.http.post(this.apiUrl, employee, {
+      headers: this.getHeaders(),
+    });
+  }
 }
