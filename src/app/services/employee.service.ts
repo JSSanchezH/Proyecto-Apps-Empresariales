@@ -3,6 +3,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { AuthService } from './auth.service';
 import { map, Observable } from 'rxjs';
 import { Employee } from '../model/employee.model';
+import { Headquarter } from '../model/headquarter.model';
 
 @Injectable({
   providedIn: 'root',
@@ -68,6 +69,12 @@ export class EmployeeService {
 
   getHeadquarters(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/headquarters`, {
+      headers: this.getHeaders(),
+    });
+  }
+
+  getHeadquarterById(id: number): Observable<Headquarter> {
+    return this.http.get<Headquarter>(`${this.apiUrl}/headquarters/${id}`, {
       headers: this.getHeaders(),
     });
   }
