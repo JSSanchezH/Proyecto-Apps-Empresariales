@@ -11,7 +11,7 @@ import {
 } from '@angular/forms';
 
 type FormFieldNames =
-  | 'fullName'
+  | 'name'
   | 'address'
   | 'phone'
   | 'continent'
@@ -41,6 +41,12 @@ export class EditHeadquarterFormComponent {
   state: string[] = [];
   city: string[] = [];
 
+  continentsMap = new Map<string, number>();
+  countriesMap = new Map<string, number>();
+  statesMap = new Map<string, number>();
+
+  citiesList: any[] = [];
+
   updateForm: FormGroup;
 
   constructor(
@@ -50,7 +56,7 @@ export class EditHeadquarterFormComponent {
     private router: Router
   ) {
     this.updateForm = this.fb.group({
-      fullName: ['', Validators.required],
+      name: ['', Validators.required],
       address: ['', Validators.required],
       phone: ['', [Validators.required, Validators.pattern(/^[0-9\-+() ]+$/)]],
       continent: [null, Validators.required],
@@ -73,7 +79,7 @@ export class EditHeadquarterFormComponent {
   setupFields() {
     this.fields = [
       {
-        name: 'fullName',
+        name: 'name',
         icon: 'bx bx-user',
         type: 'text',
         placeholder: 'Full Name',
@@ -95,33 +101,34 @@ export class EditHeadquarterFormComponent {
         icon: 'bx bx-globe',
         type: 'select',
         placeholder: 'Select Continent',
-        options: ['North America', 'Europe', 'Asia'],
+        options: this.continent,
       },
       {
         name: 'country',
         icon: 'bx bx-flag',
         type: 'select',
         placeholder: 'Select Country',
-        options: ['USA', 'UK', 'Canada'],
+        options: this.country,
       },
       {
         name: 'state',
         icon: 'bx bx-map-pin',
         type: 'select',
         placeholder: 'Select State',
-        options: ['California', 'Texas', 'Florida'],
+        options: this.state,
       },
       {
         name: 'city',
         icon: 'bx bx-buildings',
         type: 'select',
         placeholder: 'Select City',
-        options: ['New York', 'Los Angeles', 'London'],
+        options: this.city,
       },
     ];
   }
   ngOnInit(): void {
     this.setupFields();
+    this.loadContinents();
     // this.loadRoles();
 
     // this.loadHeadquarters();
@@ -148,17 +155,102 @@ export class EditHeadquarterFormComponent {
     // });
   }
 
-  //   loadContinents() {
-  //   this.employeeService.getContinents().subscribe((data) => {
-  //     this.headquarters = data.map((hq: any) => {
-  //       this.headquartersMap.set(hq.name, hq.id);
-  //       return hq.name;
-  //     });
-  //     const hqField = this.fields.find((f) => f.name === 'headquarter');
-  //     if (hqField) hqField.options = this.headquarters;
-  //   });
-  // }
+  loadContinents() {
+    this.employeeService.getContinents().subscribe((data) => {
+      this.continent = data.map((c: any) => {
+        this.continentsMap.set(c.name, c.id);
+        return c.name;
+      });
+      const conField = this.fields.find((f) => f.name === 'continent');
+      if (conField) conField.options = this.continent;
+    });
+  }
   onSubmit() {
-    console.log('Headquarter info updated:', this.form);
+    console.log('Continent info updated:', this.form);
+  }
+
+  loadCountries(continentId: number) {
+    this.employeeService
+      .getCountriesByContinent(continentId)
+      .subscribe((data) => {
+        this.country = data.map((c: any) => {
+          this.countriesMap.set(c.name, c.id);
+          return c.name;
+        });
+        const counField = this.fields.find((f) => f.name === 'country');
+        if (counField) counField.options = this.country;
+      });
+  }
+
+  loadStates(countryId: number) {
+    this.employeeService.getStatesByCountry(countryId).subscribe((data) => {
+      this.state = data.map((s: any) => {
+        this.statesMap.set(s.name, s.id);
+        return s.name;
+      });
+      const sField = this.fields.find((f) => f.name === 'state');
+      if (sField) sField.options = this.state;
+    });
+  }
+
+  loadCities(countryId: number) {
+    this.employeeService.getCitiesByState(countryId).subscribe({
+      next: (cities) => {
+        this.citiesList = cities; // objetos completos
+        this.city = cities.map((d) => d.name); // solo nombres para el select
+        const cityField = this.fields.find((f) => f.name === 'city');
+        if (cityField) cityField.options = this.city;
+      },
+      error: (err) => console.error('Error loading cities', err),
+    });
+  }
+  onFieldChange(fieldName: FormFieldNames, value: string) {
+    this.updateForm.get(fieldName)?.setValue(value);
+    this.form[fieldName] = value;
+
+    if (fieldName === 'continent') {
+      const continentId = this.continentsMap.get(value);
+
+      // Limpiar select dependientes
+      this.country = [];
+      this.state = [];
+      this.city = [];
+
+      this.updateForm.patchValue({
+        country: null,
+        state: null,
+        city: null,
+      });
+
+      if (continentId !== undefined) {
+        this.loadCountries(continentId);
+      }
+    } else if (fieldName === 'country') {
+      const countryId = this.countriesMap.get(value);
+
+      this.state = [];
+      this.city = [];
+
+      this.updateForm.patchValue({
+        state: null,
+        city: null,
+      });
+
+      if (countryId !== undefined) {
+        this.loadStates(countryId);
+      }
+    } else if (fieldName === 'state') {
+      const stateId = this.statesMap.get(value);
+
+      this.city = [];
+
+      this.updateForm.patchValue({
+        city: null,
+      });
+
+      if (stateId !== undefined) {
+        this.loadCities(stateId);
+      }
+    }
   }
 }
