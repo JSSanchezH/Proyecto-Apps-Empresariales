@@ -178,6 +178,13 @@ export class EmployeeService {
     });
   }
 
+  createSchedule(schedule: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/schedules`, schedule, {
+      headers: this.getHeaders(),
+      responseType: 'text',
+    });
+  }
+
   //------------------------------------------ Absences ------------------------------------------
 
   getAbsencesById(absenceId: number): Observable<any> {

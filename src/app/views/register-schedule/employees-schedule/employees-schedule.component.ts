@@ -20,7 +20,7 @@ export class EmployeesScheduleComponent {
     private router: Router
   ) {}
 
-   @Output() showForm = new EventEmitter<void>();
+  @Output() showForm = new EventEmitter<number>();
 
   employees: Employee[] = [];
   displayedEmployees: Employee[] = [];
@@ -49,8 +49,7 @@ export class EmployeesScheduleComponent {
     );
   }
 
-  assignSchedule(employee: any) {
-    console.log('Assign clicked');
-    this.showForm.emit(); // Emitimos solo para mostrar el formulario
-  }
+    assignSchedule(employee: Employee) {
+      this.showForm.emit(employee.id); 
+    }
 }

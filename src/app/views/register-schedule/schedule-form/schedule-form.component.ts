@@ -1,6 +1,15 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InputFieldComponent } from '../../../shared/input-field/input-field.component';
+
+type FormFieldNames = 'startTime' | 'endTime' | 'breakStart' | 'breakEnd';
+
+interface FormField {
+  name: FormFieldNames;
+  icon: string;
+  type: string;
+  placeholder: string;
+}
 
 @Component({
   selector: 'app-schedule-form',
@@ -10,6 +19,7 @@ import { InputFieldComponent } from '../../../shared/input-field/input-field.com
   styleUrl: './schedule-form.component.css'
 })
 export class ScheduleFormComponent {
+@Input() employeeId!: number;
 @Output() close = new EventEmitter<void>();
 
   form = {
@@ -31,7 +41,10 @@ export class ScheduleFormComponent {
   }
 
   onSubmit() {
-    console.log('Schedule submitted:', this.form);
+    console.log('Schedule submitted:', {
+      ...this.form,
+      employeeId: this.employeeId
+    });
   }
 
 }
