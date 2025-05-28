@@ -31,13 +31,13 @@
     </thead>
     <tbody>
       <tr *ngFor="let absence of displayedAbsences">
-        <td>{{ absence.employee }}</td>
-        <td>{{ absence.absence_Type }}</td>
-        <td>{{ absence.start_Date }}</td>
-        <td>{{ absence.end_Date }}</td>
+        <td>{{ absence.employee.firstname }} {{ absence.employee.lastname }}</td>
+        <td>{{ absence.absenceType.name }}</td>
+        <td>{{ absence.startDate }}</td>
+        <td>{{ absence.endDate }}</td>
         <td>{{ absence.description }}</td>
         <td class="actions-cell">
-          <a href="/editAbsences" class="btn-actions">Edit</a>
+          <a [routerLink] ="['/editAbsences', absence.id]" class="btn-actions">Edit</a>
           <a href="#" class="btn-actions">Delete</a>
         </td>
       </tr>
