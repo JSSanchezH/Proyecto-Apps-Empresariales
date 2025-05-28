@@ -37,7 +37,9 @@
           <td>
             <a href="/evaluations" class="btn-actions">Evaluate</a>
             <a href="#" class="btn-actions">Generate Report</a>
-            <a href="/EditEmployee" class="btn-actions">Edit</a>
+            <a [routerLink]="['/editEmployee', employee.id]" class="btn-actions"
+              >Edit</a
+            >
             <a (click)="dismissEmployee(employee)" class="btn-actions"
               >Dissmis</a
             >

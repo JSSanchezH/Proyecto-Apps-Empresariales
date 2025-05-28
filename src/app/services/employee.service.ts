@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { AuthService } from './auth.service';
 import { Observable } from 'rxjs';
+import { Employee } from '../model/employee.model';
 
 @Injectable({
   providedIn: 'root',
@@ -35,8 +36,13 @@ export class EmployeeService {
     });
   }
 
+<<<<<<< HEAD
   registerEmployee(employee: any): Observable<any> {
     return this.http.post(this.apiUrl, employee, {
+=======
+  getEmployeeById(id: number): Observable<Employee> {
+    return this.http.get<Employee>(`${this.apiUrl}/${id}`, {
+>>>>>>> 1a5819d72b8cdf6c4da762e5795fa149ded6a4bb
       headers: this.getHeaders(),
     });
   }
