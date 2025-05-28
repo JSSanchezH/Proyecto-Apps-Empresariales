@@ -157,4 +157,20 @@ export class EmployeeService {
       headers: this.getHeaders(),
     });
   }
+
+  
+  //------------------------------------------ Absences ------------------------------------------
+
+  getAbsencesById(absenceId: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/absences/${absenceId}`, {
+      headers: this.getHeaders(),
+    });
+  }
+
+  getAbsences(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/absences`, {
+      headers: this.getHeaders(),
+    });
+  }
+
 }
