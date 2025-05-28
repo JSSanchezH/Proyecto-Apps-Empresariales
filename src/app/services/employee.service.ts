@@ -42,27 +42,62 @@ export class EmployeeService {
     });
   }
 
-  createEmployee(employee: Employee): Observable<Employee> {
-    return this.http.post<Employee>(`${this.apiUrl}/employees`, employee, {
+  createEmployee(employee: any) {
+    return this.http.post(`${this.apiUrl}/employees`, employee, {
+      headers: this.getHeaders(),
+      responseType: 'text',
+    });
+  }
+
+  getEmployees(): Observable<Employee[]> {
+    return this.http.get<Employee[]>(`${this.apiUrl}/employees`, {
       headers: this.getHeaders(),
     });
   }
 
   //------------------------------------------ Roles ------------------------------------------
 
-  getRoles(): Observable<string[]> {
+  getRoles(): Observable<{ id: number; name: string }[]> {
     return this.http
-      .get<any[]>(`${this.apiUrl}/roles`, {})
-      .pipe(map((roles) => roles.map((role) => role.name)));
+      .get<any[]>(`${this.apiUrl}/roles`)
+      .pipe(
+        map((roles) => roles.map((role) => ({ id: role.id, name: role.name })))
+      );
   }
+  //------------------------------------------ Headquarters ------------------------------------------
 
   getHeadquarters(): Observable<string[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/headquarters`, {
+      headers: this.getHeaders(),
+    });
+  }
+  //------------------------------------------ Deparments ------------------------------------------
+
+  getDepartmentById(departmentId: number): Observable<any> {
+    return this.http.get(
+      `${this.apiUrl}/departments/headquarter/${departmentId}`,
+      {
+        headers: this.getHeaders(),
+      }
+    );
+  }
+  getDepartmentsByHeadquarter(
+    headquarterId: number
+  ): Observable<{ id: number; name: string }[]> {
     return this.http
-      .get<any[]>(`${this.apiUrl}/headquarters`, { headers: this.getHeaders() })
+      .get<any[]>(`${this.apiUrl}/departments/headquarter/${headquarterId}`, {
+        headers: this.getHeaders(),
+      })
       .pipe(
-        map((headquarters) =>
-          headquarters.map((headquarters) => headquarters.name)
+        map((departments) =>
+          departments.map((dept) => ({ id: dept.id, name: dept.name }))
         )
       );
+  }
+
+  getDepartments(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/departments`, {
+      headers: this.getHeaders(),
+    });
   }
 }

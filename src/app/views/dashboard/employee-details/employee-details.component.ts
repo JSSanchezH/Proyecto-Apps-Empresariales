@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ButtonComponent } from '../../../shared/button/button.component';
 import { EmployeeService } from '../../../services/employee.service';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 import { Employee } from '../../../model/employee.model';
 @Component({
@@ -13,7 +13,10 @@ import { Employee } from '../../../model/employee.model';
   styleUrl: './employee-details.component.css',
 })
 export class EmployeeDetailsComponent {
-  constructor(private employeeService: EmployeeService) {}
+  constructor(
+    private employeeService: EmployeeService,
+    private router: Router
+  ) {}
 
   employees: Employee[] = [];
   displayedEmployees: Employee[] = [];
@@ -27,7 +30,6 @@ export class EmployeeDetailsComponent {
         0,
         this.initialEmployeeCount
       );
-      console.log(this.displayedEmployees);
     });
   }
 
@@ -36,6 +38,10 @@ export class EmployeeDetailsComponent {
 
     this.employeeService.dismissEmployee(updatedEmployee).subscribe({
       next: () => {
+        this.router.navigate(['/dashboard']).then(() => {
+          window.location.reload();
+        });
+
         employee.status = false; // Actualiza la UI
       },
       error: (error) => {

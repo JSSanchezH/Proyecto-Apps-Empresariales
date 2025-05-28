@@ -1,5 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, forwardRef, Input } from '@angular/core';
+import {
+  Component,
+  forwardRef,
+  Input,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 import {
   AbstractControl,
   ControlValueAccessor,
@@ -28,7 +34,9 @@ export class InputFieldComponent implements ControlValueAccessor {
   @Input() options: string[] = [];
   @Input() control!: AbstractControl | null;
 
-  value: string = '';
+  @Input() value: string = '';
+  @Output() valueChange = new EventEmitter<string>();
+
   disabled = false;
 
   private onChange = (_: any) => {};
@@ -36,9 +44,11 @@ export class InputFieldComponent implements ControlValueAccessor {
 
   onInput(event: Event) {
     const target = event.target as HTMLInputElement | HTMLSelectElement;
-    this.value = target.value;
-    this.onChange(this.value);
+    const val = target.value;
+    this.value = val;
+    this.onChange(val);
     this.onTouched();
+    this.valueChange.emit(val);
   }
 
   writeValue(value: string): void {

@@ -7,7 +7,11 @@
 
   <div class="employee-container">
     <div class="container-form">
-      <form class="edit-employe" (ngSubmit)="onSubmit()">
+      <form
+        class="edit-employe"
+        [formGroup]="updateForm"
+        (ngSubmit)="onSubmit()"
+      >
         <h2>Update Info</h2>
         <span>Update employee Info</span>
 
@@ -17,6 +21,8 @@
           [type]="field.type"
           [placeholder]="field.placeholder"
           [options]="field.options || []"
+          [value]="form[field.name]"
+          (valueChange)="onFieldChange(field.name, $event)"
         ></app-input-field>
 
         <button class="btn" type="submit">Update</button>
@@ -27,7 +33,8 @@
       <div class="info">
         <h3>Update Info</h3>
         <p>
-          Here you can update the employee information. Please make sure to fill in all the fields correctly.
+          Here you can update the employee information. Please make sure to fill
+          in all the fields correctly.
         </p>
       </div>
     </div>

@@ -134,4 +134,5 @@
   border-radius: 5px;
   transition: all 0.3s ease;
   margin-right: 10px;
+  cursor: pointer;
 }

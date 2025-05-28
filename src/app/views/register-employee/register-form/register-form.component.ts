@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { InputFieldComponent } from '../../../shared/input-field/input-field.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -8,10 +8,28 @@ import {
   Validators,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeeService } from '../../../services/employee.service';
 import { Employee } from '../../../model/employee.model';
+import { Role } from '../../../model/role.model';
 
+type FormFieldNames =
+  | 'id'
+  | 'firstName'
+  | 'lastName'
+  | 'email'
+  | 'phone'
+  | 'role'
+  | 'department'
+  | 'headquarter'
+  | 'photoUrl';
+interface FormField {
+  name: FormFieldNames;
+  icon: string;
+  type: string;
+  placeholder: string;
+  options?: string[];
+}
 @Component({
   selector: 'app-register-form',
   standalone: true,
@@ -24,20 +42,20 @@ import { Employee } from '../../../model/employee.model';
   templateUrl: './register-form.component.html',
   styleUrl: './register-form.component.css',
 })
-export class RegisterFormComponent {
-  fields: any[] = [];
+export class RegisterFormComponent implements OnInit {
+  fields: FormField[] = [];
+
   roles: string[] = [];
   headquarters: string[] = [];
+  departments: string[] = [];
 
-  constructor(
-    private route: ActivatedRoute,
-    private employeeService: EmployeeService
-  ) {}
+  rolesList: Role[] = [];
+  departmentsList: any[] = [];
 
-  employeeId!: number;
-  employeeData!: Employee;
+  headquartersMap = new Map<string, number>();
 
   form = {
+    id: '',
     firstName: '',
     lastName: '',
     email: '',
@@ -45,59 +63,182 @@ export class RegisterFormComponent {
     role: '',
     manager: '',
     department: '',
-    urlFoto: '',
+    headquarter: '',
+    photoUrl: '',
   };
+  registerForm: FormGroup;
+
+  constructor(
+    private route: ActivatedRoute,
+    private employeeService: EmployeeService,
+    private fb: FormBuilder,
+    private router: Router
+  ) {
+    this.registerForm = this.fb.group({
+      id: ['', Validators.required],
+      firstname: ['', Validators.required],
+      lastname: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      phoneNumber: [
+        '',
+        [Validators.required, Validators.pattern(/^[0-9\-+() ]+$/)],
+      ],
+      role: [null, Validators.required],
+      department: [null, Validators.required],
+      urlFoto: ['', Validators.required],
+    });
+  }
+
+  ngOnInit(): void {
+    this.loadRoles();
+    this.loadHeadquarters();
+    this.setupFields();
+  }
 
   setupFields() {
     this.fields = [
-      { icon: 'bx bxs-id-card', type: 'text', placeholder: 'ID' },
-
-      { icon: 'bx bxs-user', type: 'text', placeholder: 'First Name' },
-      { icon: 'bx bxs-user', type: 'text', placeholder: 'Last Name' },
-      { icon: 'bx bx-envelope', type: 'text', placeholder: 'Email' },
-      { icon: 'bx bx-phone', type: 'text', placeholder: 'Phone number' },
       {
+        name: 'id',
+        icon: 'bx bxs-id-card',
+        type: 'text',
+        placeholder: 'id',
+      },
+      {
+        name: 'firstName',
+        icon: 'bx bxs-user',
+        type: 'text',
+        placeholder: 'First Name',
+      },
+      {
+        name: 'lastName',
+        icon: 'bx bxs-user',
+        type: 'text',
+        placeholder: 'Last Name',
+      },
+      {
+        name: 'email',
+        icon: 'bx bx-envelope',
+        type: 'text',
+        placeholder: 'Email',
+      },
+      {
+        name: 'phone',
+        icon: 'bx bx-phone',
+        type: 'text',
+        placeholder: 'Phone number',
+      },
+      {
+        name: 'role',
         icon: 'bx bxs-color',
         type: 'select',
         placeholder: 'Select Role',
         options: this.roles,
       },
       {
+        name: 'headquarter',
         icon: 'bx bx-buildings',
         type: 'select',
         placeholder: 'Select Headquarter',
         options: this.headquarters,
       },
       {
+        name: 'department',
         icon: 'bx bx-buildings',
         type: 'select',
         placeholder: 'Select Department',
-        options: ['Placeholder HQ 1', '2', '3'],
+        options: this.departments,
       },
-      { icon: 'bx bx-aperture', type: 'text', placeholder: 'url photo' },
+      {
+        name: 'photoUrl',
+        icon: 'bx bx-aperture',
+        type: 'text',
+        placeholder: 'url photo',
+      },
     ];
   }
 
-  ngOnInit(): void {
-    // Roles
+  loadRoles() {
     this.employeeService.getRoles().subscribe({
       next: (roles) => {
-        this.roles = roles;
-        this.setupFields();
+        this.rolesList = roles;
+        this.roles = roles.map((r) => r.name);
+        const roleField = this.fields.find((f) => f.name === 'role');
+        if (roleField) roleField.options = this.roles;
       },
       error: (err) => console.error('Error loading roles', err),
     });
+  }
 
-    // Deparments
+  loadHeadquarters() {
     this.employeeService.getHeadquarters().subscribe({
-      next: (headquarters) => {
-        this.headquarters = headquarters;
-        this.setupFields();
+      next: (data) => {
+        this.headquarters = data.map((hq: any) => {
+          this.headquartersMap.set(hq.name, hq.id);
+          return hq.name;
+        });
+        const hqField = this.fields.find((f) => f.name === 'headquarter');
+        if (hqField) hqField.options = this.headquarters;
       },
-      error: (err) => console.error('Error loading deparments', err),
+      error: (err) => console.error('Error loading headquarters', err),
     });
   }
+
+  loadDepartments(headquarterId: number) {
+    this.employeeService.getDepartmentsByHeadquarter(headquarterId).subscribe({
+      next: (departments) => {
+        this.departmentsList = departments;
+        this.departments = departments.map((d) => d.name);
+        const deptField = this.fields.find((f) => f.name === 'department');
+        if (deptField) deptField.options = this.departments;
+      },
+      error: (err) => console.error('Error loading departments', err),
+    });
+  }
+
+  onFieldChange(fieldName: FormFieldNames, value: string) {
+    this.form[fieldName] = value;
+
+    if (fieldName === 'headquarter') {
+      const headquarterId = this.headquartersMap.get(value);
+      if (headquarterId !== undefined) {
+        this.loadDepartments(headquarterId);
+      } else {
+        this.departments = [];
+      }
+    }
+  }
+
   onSubmit() {
-    console.log('Form submitted:', this.form);
+    // if (this.registerForm.invalid) return;
+
+    const roleObj = this.rolesList.find((r) => r.name === this.form.role);
+    const departmentObj = this.departmentsList.find(
+      (d) => d.name === this.form.department
+    );
+    const today = new Date().toISOString().split('T')[0];
+    const newEmployee: Employee = {
+      id: +this.form.id,
+      firstname: this.form.firstName,
+      lastname: this.form.lastName,
+      email: this.form.email,
+      phoneNumber: this.form.phone,
+      role: roleObj ?? { id: 0, name: '' },
+      department: departmentObj ?? { id: 0, name: '' },
+      hireDate: today,
+      urlFoto: this.form.photoUrl,
+      status: true,
+    };
+
+    console.log(newEmployee);
+
+    this.employeeService.createEmployee(newEmployee).subscribe({
+      next: (res) => {
+        console.log('Empleado creado exitosamente', res);
+        this.router.navigate(['/dashboard']);
+      },
+      error: (err) => {
+        console.error('Error al crear el empleado:', err);
+      },
+    });
   }
 }
