@@ -9,6 +9,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { Headquarter } from '../../../model/headquarter.model';
 
 type FormFieldNames =
   | 'name'
@@ -40,6 +41,9 @@ export class EditHeadquarterFormComponent {
   country: string[] = [];
   state: string[] = [];
   city: string[] = [];
+
+  headquarterId!: number;
+  headquarterData!: Headquarter;
 
   continentsMap = new Map<string, number>();
   countriesMap = new Map<string, number>();
@@ -134,25 +138,51 @@ export class EditHeadquarterFormComponent {
     // this.loadHeadquarters();
 
     // // Otros
-    // const id = Number(this.route.snapshot.paramMap.get('id'));
-    // this.employeeId = id;
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.headquarterId = id;
 
-    // this.employeeService.getEmployeeById(id).subscribe({
-    //   next: (employee) => {
-    //     this.employeeData = employee;
-    //     this.form = {
-    //       firstName: employee.firstname,
-    //       lastName: employee.lastname,
-    //       email: employee.email,
-    //       phone: employee.phoneNumber,
-    //       role: employee.role.name,
-    //       department: employee.department.name,
-    //       headquarter: '',
-    //       photoUrl: '',
-    //     };
-    //   },
-    //   error: (err) => console.error('Error loading employee:', err),
-    // });
+    this.employeeService.getHeadquarterById(id).subscribe({
+      next: (headquarter) => {
+        this.headquarterData = headquarter;
+        this.form = {
+          name: headquarter.name,
+          address: headquarter.address,
+          phone: headquarter.phone,
+          continent: '',
+          country: '',
+          state: '',
+          city: headquarter.city.name,
+        };
+      },
+      error: (err) => console.error('Error loading employee:', err),
+    });
+  }
+
+  onSubmit() {
+    console.log(this.form);
+
+    const cityName = this.form.city;
+    const cityObj = this.citiesList.find((c) => c.name === cityName);
+    console.log(cityName);
+    const updatedHeadquarter: Headquarter = {
+      ...this.headquarterData,
+      name: this.form.name,
+      address: this.form.address,
+      phone: this.form.phone,
+      city: cityObj ?? { id: 0, name: '' },
+    };
+
+    console.log(updatedHeadquarter);
+
+    this.employeeService.updateHeadquarter(updatedHeadquarter).subscribe({
+      next: () => {
+        console.log('Headquarter updated successfully');
+        this.router.navigate(['/headquarters']);
+      },
+      error: (err) => {
+        console.error('Error updating headquarter:', err);
+      },
+    });
   }
 
   loadContinents() {
@@ -164,9 +194,6 @@ export class EditHeadquarterFormComponent {
       const conField = this.fields.find((f) => f.name === 'continent');
       if (conField) conField.options = this.continent;
     });
-  }
-  onSubmit() {
-    console.log('Continent info updated:', this.form);
   }
 
   loadCountries(continentId: number) {
@@ -204,23 +231,16 @@ export class EditHeadquarterFormComponent {
       error: (err) => console.error('Error loading cities', err),
     });
   }
+
   onFieldChange(fieldName: FormFieldNames, value: string) {
-    this.updateForm.get(fieldName)?.setValue(value);
     this.form[fieldName] = value;
 
     if (fieldName === 'continent') {
       const continentId = this.continentsMap.get(value);
 
-      // Limpiar select dependientes
       this.country = [];
       this.state = [];
       this.city = [];
-
-      this.updateForm.patchValue({
-        country: null,
-        state: null,
-        city: null,
-      });
 
       if (continentId !== undefined) {
         this.loadCountries(continentId);
@@ -231,11 +251,6 @@ export class EditHeadquarterFormComponent {
       this.state = [];
       this.city = [];
 
-      this.updateForm.patchValue({
-        state: null,
-        city: null,
-      });
-
       if (countryId !== undefined) {
         this.loadStates(countryId);
       }
@@ -243,10 +258,6 @@ export class EditHeadquarterFormComponent {
       const stateId = this.statesMap.get(value);
 
       this.city = [];
-
-      this.updateForm.patchValue({
-        city: null,
-      });
 
       if (stateId !== undefined) {
         this.loadCities(stateId);

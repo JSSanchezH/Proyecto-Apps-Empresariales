@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from '../../../shared/button/button.component';
 import { EmployeeService } from '../../../services/employee.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-headquarters-details',
   standalone: true,
-  imports: [CommonModule, ButtonComponent],
+  imports: [CommonModule, ButtonComponent, RouterLink],
   templateUrl: './headquarters-details.component.html',
   styleUrl: './headquarters-details.component.css',
 })

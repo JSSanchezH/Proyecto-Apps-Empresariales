@@ -1,7 +1,13 @@
 export interface Headquarter {
   name: string;
-  addres: string;
+  address: string;
   phone: string;
-  city: string;
-  company: string;
+  city: {
+    id: number;
+    name: string;
+  };
+  company: {
+    id: number;
+    name: string;
+  };
 }

@@ -37,7 +37,11 @@
         <td>{{ headquarter.city.name }}</td>
         <td>{{ headquarter.company.name }}</td>
         <td class="actions-cell">
-          <a href="/editHeadquarters" class="btn-actions">Edit</a>
+          <a
+            [routerLink]="['/editHeadquarters', headquarter.id]"
+            class="btn-actions"
+            >Edit</a
+          >
           <a (click)="deleteHeadquarter(headquarter.id)" class="btn-actions"
             >Delete</a
           >
