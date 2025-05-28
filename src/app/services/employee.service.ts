@@ -158,7 +158,6 @@ export class EmployeeService {
     });
   }
 
-  
   //------------------------------------------ Absences ------------------------------------------
 
   getAbsencesById(absenceId: number): Observable<any> {
@@ -173,4 +172,55 @@ export class EmployeeService {
     });
   }
 
+  //------------------------------------------ Location ------------------------------------------
+
+  getContinents(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/continents`, {});
+  }
+
+  getCountriesByContinent(
+    continentId: number
+  ): Observable<{ id: number; name: string }[]> {
+    return this.http
+      .get<any[]>(`${this.apiUrl}/countries/continent/${continentId}`, {
+        headers: this.getHeaders(),
+      })
+      .pipe(
+        map((departments) =>
+          departments.map((dept) => ({ id: dept.id, name: dept.name }))
+        )
+      );
+  }
+
+  getStatesByCountry(
+    continentId: number
+  ): Observable<{ id: number; name: string }[]> {
+    return this.http
+      .get<any[]>(`${this.apiUrl}/states/country/${continentId}`, {
+        headers: this.getHeaders(),
+      })
+      .pipe(
+        map((departments) =>
+          departments.map((dept) => ({ id: dept.id, name: dept.name }))
+        )
+      );
+  }
+
+  getCitiesByState(
+    continentId: number
+  ): Observable<{ id: number; name: string }[]> {
+    return this.http
+      .get<any[]>(`${this.apiUrl}/cities/state/${continentId}`, {
+        headers: this.getHeaders(),
+      })
+      .pipe(
+        map((departments) =>
+          departments.map((dept) => ({ id: dept.id, name: dept.name }))
+        )
+      );
+  }
+
+  getCountries(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/contries`, {});
+  }
 }
