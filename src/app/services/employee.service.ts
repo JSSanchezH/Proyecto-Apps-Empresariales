@@ -36,17 +36,14 @@ export class EmployeeService {
     });
   }
 
-<<<<<<< HEAD
-  registerEmployee(employee: any): Observable<any> {
-    return this.http.post(this.apiUrl, employee, {
-=======
   getEmployeeById(id: number): Observable<Employee> {
-<<<<<<< HEAD
     return this.http.get<Employee>(`${this.apiUrl}/employees/${id}`, {
-=======
-    return this.http.get<Employee>(`${this.apiUrl}/${id}`, {
->>>>>>> 1a5819d72b8cdf6c4da762e5795fa149ded6a4bb
->>>>>>> ae46c3953278c5260de55f1b35331cd40d5e50e9
+      headers: this.getHeaders(),
+    });
+  }
+
+  createEmployee(employee: Employee): Observable<Employee> {
+    return this.http.post<Employee>(`${this.apiUrl}/employees`, employee, {
       headers: this.getHeaders(),
     });
   }

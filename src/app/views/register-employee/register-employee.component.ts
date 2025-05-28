@@ -4,14 +4,11 @@ import { RegisterFormComponent } from './register-form/register-form.component';
 @Component({
   selector: 'app-register-employee',
   standalone: true,
-  imports: [
-    RegisterFormComponent,
-  ],
+  imports: [RegisterFormComponent],
   templateUrl: './register-employee.component.html',
-  styleUrl: './register-employee.component.css'
+  styleUrl: './register-employee.component.css',
 })
 export class RegisterEmployeeComponent {
-
   ngOnInit(): void {
     // Toggle menu functionality
     const toggle = document.querySelector('.toggle');

@@ -59,6 +59,7 @@ export class EmployeesComponent implements OnInit {
         placeholder: 'Select Department',
         options: ['Placeholder HQ 1', '2', '3'],
       },
+      { icon: 'bx bx-aperture', type: 'text', placeholder: 'url photo' },
     ];
   }
 
