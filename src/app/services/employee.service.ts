@@ -157,6 +157,19 @@ export class EmployeeService {
       headers: this.getHeaders(),
     });
   }
+  //------------------------------------------ Schedules ------------------------------------------
+
+  getSchedulesById(scheduleId: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/schedules/${scheduleId}`, {
+      headers: this.getHeaders(),
+    });
+  }
+
+  getSchedules(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/schedules`, {
+      headers: this.getHeaders(),
+    });
+  }
 
   //------------------------------------------ Absences ------------------------------------------
 
