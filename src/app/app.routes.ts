@@ -26,7 +26,7 @@ export const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'EditEmployee', component: EmployeesComponent },
+  { path: 'editEmployee/:id', component: EmployeesComponent },
   { path: 'registerEmployee', component: RegisterEmployeeComponent },
   { path: 'schedules', component: SchedulesComponent },
   { path: 'registerSchedules', component: RegisterScheduleComponent },
@@ -42,6 +42,6 @@ export const routes: Routes = [
   { path: 'editHeadquarters', component: EditHeadquarterComponent },
   { path: 'registerHeadquarters', component: RegisterHeadquarterComponent },
   { path: 'departments', component: DepartmentsComponent },
-  { path: 'editDeparments', component: EditDeparmentComponent },  
-  { path: 'registerDepartment', component: RegisterDeparmentComponent }, 
+  { path: 'editDeparments', component: EditDeparmentComponent },
+  { path: 'registerDepartment', component: RegisterDeparmentComponent },
 ];

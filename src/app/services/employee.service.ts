@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { AuthService } from './auth.service';
 import { Observable } from 'rxjs';
+import { Employee } from '../model/employee.model';
 
 @Injectable({
   providedIn: 'root',
@@ -31,6 +32,12 @@ export class EmployeeService {
 
   dismissEmployee(employee: any): Observable<any> {
     return this.http.put(`${this.apiUrl}/${employee.id}`, employee, {
+      headers: this.getHeaders(),
+    });
+  }
+
+  getEmployeeById(id: number): Observable<Employee> {
+    return this.http.get<Employee>(`${this.apiUrl}/${id}`, {
       headers: this.getHeaders(),
     });
   }
