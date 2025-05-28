@@ -4,6 +4,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
+import { RegisterSuccessfullyComponent } from './register-successfully/register-successfully.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +17,8 @@ import { RegisterFormComponent } from './register-form/register-form.component';
     HttpClientModule,
     LoginFormComponent,
     RegisterFormComponent,
+    RegisterSuccessfullyComponent,
+    CommonModule
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
@@ -40,5 +44,11 @@ export class LoginComponent {
       container?.classList.toggle('active');
       nav?.classList.toggle('active');
     });
+  }
+
+  isRegisterSuccessful = false;
+
+  handleRegisterSuccess() {
+    this.isRegisterSuccessful = true;
   }
 }

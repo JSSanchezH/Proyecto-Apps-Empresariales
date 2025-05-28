@@ -7,7 +7,7 @@
     </div>
 
     <div class="container-form register-form" [class.active]="isRegister">
-      <app-register-form></app-register-form>
+      <app-register-form (registerSuccess)="handleRegisterSuccess()"></app-register-form>
     </div>
 
     <div class="container-welcome">
@@ -23,4 +23,7 @@
       </div>
     </div>
   </div>
+
+  <app-register-successfully *ngIf="isRegisterSuccessful"></app-register-successfully>
+  
 </div>
