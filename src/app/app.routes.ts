@@ -30,7 +30,7 @@ export const routes: Routes = [
   { path: 'registerEmployee', component: RegisterEmployeeComponent },
   { path: 'schedules', component: SchedulesComponent },
   { path: 'registerSchedules', component: RegisterScheduleComponent },
-  { path: 'editSchedules', component: EditSchedulesComponent },
+  { path: 'editSchedules/:id', component: EditSchedulesComponent },
   { path: 'payrolls', component: PayrollsComponent },
   { path: 'registerPayrolls', component: RegisterPayrollsComponent },
   { path: 'editPayrolls/:id', component: EditPayrollsComponent },

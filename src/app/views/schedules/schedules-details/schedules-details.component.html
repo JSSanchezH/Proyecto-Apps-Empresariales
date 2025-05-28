@@ -31,13 +31,13 @@
     </thead>
     <tbody>
       <tr *ngFor="let schedule of displayedSchedules">
-        <td>{{ schedule.employee }}</td>
+        <td>{{ schedule.employee.firstname }} {{schedule.employee.lastname}}</td>
         <td>{{ schedule.startTime }}</td>
         <td>{{ schedule.endTime }}</td>
         <td>{{ schedule.breakStart }}</td>
         <td>{{ schedule.breakEnd }}</td>
         <td class="actions-cell">
-          <a href="/editSchedules" class="btn-actions">Edit</a>
+          <a [routerLink]="['/editSchedules', schedule.id]" class="btn-actions">Edit</a>
           <a href="#" class="btn-actions">Delete</a>
         </td>
       </tr>
