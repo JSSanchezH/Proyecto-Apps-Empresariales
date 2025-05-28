@@ -13,8 +13,8 @@
         [iconClass]="field.icon"
         [type]="field.type"
         [placeholder]="field.placeholder"
-        [options]="field.options || []"
         [value]="form[field.name]"
+        [options]="field.options || []"
         (valueChange)="onFieldChange(field.name, $event)"
       ></app-input-field>
 

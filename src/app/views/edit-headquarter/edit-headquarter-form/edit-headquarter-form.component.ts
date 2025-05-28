@@ -159,11 +159,10 @@ export class EditHeadquarterFormComponent {
   }
 
   onSubmit() {
-    console.log(this.form);
+    console.log(this.city);
 
-    const cityName = this.form.city;
+    const cityName = this.city[0];
     const cityObj = this.citiesList.find((c) => c.name === cityName);
-    console.log(cityName);
     const updatedHeadquarter: Headquarter = {
       ...this.headquarterData,
       name: this.form.name,
@@ -171,8 +170,6 @@ export class EditHeadquarterFormComponent {
       phone: this.form.phone,
       city: cityObj ?? { id: 0, name: '' },
     };
-
-    console.log(updatedHeadquarter);
 
     this.employeeService.updateHeadquarter(updatedHeadquarter).subscribe({
       next: () => {
@@ -245,7 +242,8 @@ export class EditHeadquarterFormComponent {
       if (continentId !== undefined) {
         this.loadCountries(continentId);
       }
-    } else if (fieldName === 'country') {
+    }
+    if (fieldName === 'country') {
       const countryId = this.countriesMap.get(value);
 
       this.state = [];
@@ -254,7 +252,8 @@ export class EditHeadquarterFormComponent {
       if (countryId !== undefined) {
         this.loadStates(countryId);
       }
-    } else if (fieldName === 'state') {
+    }
+    if (fieldName === 'state') {
       const stateId = this.statesMap.get(value);
 
       this.city = [];
