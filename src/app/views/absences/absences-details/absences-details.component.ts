@@ -32,7 +32,6 @@ export class AbsencesDetailsComponent {
     });
   }
   
-
   loadMoreAbsences() {
     const nextCount = this.displayedAbsences.length + 5;
     this.displayedAbsences = this.absences.slice(0, nextCount);

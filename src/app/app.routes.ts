@@ -33,7 +33,7 @@ export const routes: Routes = [
   { path: 'editSchedules', component: EditSchedulesComponent },
   { path: 'payrolls', component: PayrollsComponent },
   { path: 'registerPayrolls', component: RegisterPayrollsComponent },
-  { path: 'editPayrolls', component: EditPayrollsComponent },
+  { path: 'editPayrolls/:id', component: EditPayrollsComponent },
   { path: 'absences', component: AbsencesComponent },
   { path: 'registerAbsences', component: RegisterAbsencesComponent },
   { path: 'editAbsences/:id', component: EditAbsencesComponent },
