@@ -113,4 +113,20 @@ export class EmployeeService {
       }
     );
   }
+
+  //------------------------------------------ Payroll ------------------------------------------
+
+  getPayrollById( payrollId: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/payrolls/${payrollId}`, {
+      headers: this.getHeaders(),
+    });
+  }
+
+  getPayrolls(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/payrolls`, {
+      headers: this.getHeaders(),
+    });
+  }
+
+  
 }

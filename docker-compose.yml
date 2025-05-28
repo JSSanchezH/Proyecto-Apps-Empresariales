@@ -1,0 +1,12 @@
+
+services:
+  angular-cra:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: angular-cra
+    ports:
+      - "4200:4200"
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
