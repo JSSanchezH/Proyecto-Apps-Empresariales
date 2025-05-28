@@ -11,7 +11,7 @@ import { EmployeeService } from '../../../services/employee.service';
   styleUrl: './headquarters-details.component.css',
 })
 export class HeadquartersDetailsComponent implements OnInit {
-  headquarters: any[] = []; // idealmente tipado como Headquarter[]
+  headquarters: any[] = [];
   displayedHeadquarters: any[] = [];
 
   initialHeadquartersCount = 5;
@@ -21,7 +21,6 @@ export class HeadquartersDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.employeeService.getHeadquarters().subscribe({
       next: (data) => {
-        console.log(data);
         this.headquarters = data;
         this.displayedHeadquarters = this.headquarters.slice(
           0,
@@ -30,6 +29,22 @@ export class HeadquartersDetailsComponent implements OnInit {
       },
       error: (err) => {
         console.error('Error loading headquarters:', err);
+      },
+    });
+  }
+
+  deleteHeadquarter(id: number): void {
+    const confirmed = window.confirm(
+      '¿Estás seguro de que deseas eliminar este sede?'
+    );
+    if (!confirmed) return;
+
+    this.employeeService.deleteDepartment(id).subscribe({
+      next: () => {
+        location.reload();
+      },
+      error: (err) => {
+        location.reload();
       },
     });
   }

@@ -12,7 +12,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './departments-details.component.css',
 })
 export class DepartmentsDetailsComponent implements OnInit {
-  departments: any[] = []; // Si tienes modelo, cambia a Department[]
+  departments: any[] = [];
   displayedDepartments: any[] = [];
 
   initialDepartmentsCount = 5;

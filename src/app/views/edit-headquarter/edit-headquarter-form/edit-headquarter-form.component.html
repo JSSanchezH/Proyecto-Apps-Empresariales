@@ -1,6 +1,10 @@
 <div class="headquarter-container">
   <div class="container-form">
-    <form class="edit-headquarter" (ngSubmit)="onSubmit()">
+    <form
+      class="edit-headquarter"
+      [formGroup]="updateForm"
+      (ngSubmit)="onSubmit()"
+    >
       <h2>Edit Headquarter Info</h2>
       <span>Fill the fields to edit the information</span>
 
@@ -20,7 +24,8 @@
     <div class="info">
       <h3>Edit Headquarter Info</h3>
       <p>
-        Here you can edit headquarter details. Please make sure to fill in all the fields correctly.
+        Here you can edit headquarter details. Please make sure to fill in all
+        the fields correctly.
       </p>
     </div>
   </div>

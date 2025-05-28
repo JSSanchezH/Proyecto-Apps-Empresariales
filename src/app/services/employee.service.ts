@@ -71,6 +71,29 @@ export class EmployeeService {
       headers: this.getHeaders(),
     });
   }
+
+  deleteHeadquarter(id: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/headquarters/${id}`, {
+      headers: this.getHeaders(),
+    });
+  }
+
+  updateHeadquarter(headquarter: any): Observable<any> {
+    return this.http.put(
+      `${this.apiUrl}/headquarters/${headquarter.id}`,
+      headquarter,
+      {
+        headers: this.getHeaders(),
+      }
+    );
+  }
+
+  createHeadquarter(headquarter: any) {
+    return this.http.post(`${this.apiUrl}/headquarters`, headquarter, {
+      headers: this.getHeaders(),
+      responseType: 'text',
+    });
+  }
   //------------------------------------------ Deparments ------------------------------------------
 
   getDepartmentById(departmentId: number): Observable<any> {

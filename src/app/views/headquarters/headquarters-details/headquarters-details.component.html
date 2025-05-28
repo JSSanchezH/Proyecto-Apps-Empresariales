@@ -38,7 +38,9 @@
         <td>{{ headquarter.company.name }}</td>
         <td class="actions-cell">
           <a href="/editHeadquarters" class="btn-actions">Edit</a>
-          <a href="#" class="btn-actions">Delete</a>
+          <a (click)="deleteHeadquarter(headquarter.id)" class="btn-actions"
+            >Delete</a
+          >
         </td>
       </tr>
     </tbody>
