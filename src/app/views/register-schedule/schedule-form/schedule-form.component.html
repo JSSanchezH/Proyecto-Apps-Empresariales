@@ -1,6 +1,6 @@
 <div class="schedule-form-container">
   <div class="container-form">
-    <form class="edit-schedule" (ngSubmit)="onSubmit()">
+    <form class="edit-schedule" [formGroup]="scheduleForm" (ngSubmit)="onSubmit()">
       <h2>Register Schedule</h2>
       <button type="button" class="close-btn" (click)="closeForm()">✖</button>
       <span>Fill the schedule information</span>
@@ -11,10 +11,19 @@
           [iconClass]="field.icon"
           [type]="field.type"
           [placeholder]="field.placeholder"
+          [control]="scheduleForm.get(field.name)"
+          [value]="form[field.name]"
+          (valueChange)="onFieldChange(field.name, $event)"
         ></app-input-field>
       </ng-container>
 
-      <button class="btn" type="submit">Register</button>
+      <button 
+        class="btn" 
+        type="submit" 
+        [disabled]="scheduleForm.invalid"
+        [class.disabled]="scheduleForm.invalid">
+        Register
+      </button>
     </form>
   </div>
 </div>
