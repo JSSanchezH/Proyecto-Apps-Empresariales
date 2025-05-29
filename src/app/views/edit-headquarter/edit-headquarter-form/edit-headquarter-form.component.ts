@@ -159,8 +159,6 @@ export class EditHeadquarterFormComponent {
   }
 
   onSubmit() {
-    console.log(this.city);
-
     const cityName = this.city[0];
     const cityObj = this.citiesList.find((c) => c.name === cityName);
     const updatedHeadquarter: Headquarter = {

@@ -40,12 +40,13 @@ export class HeadquartersDetailsComponent implements OnInit {
     );
     if (!confirmed) return;
 
-    this.employeeService.deleteDepartment(id).subscribe({
+    this.employeeService.deleteHeadquarter(id).subscribe({
       next: () => {
         location.reload();
       },
       error: (err) => {
-        location.reload();
+        console.log(err);
+        // location.reload();
       },
     });
   }
