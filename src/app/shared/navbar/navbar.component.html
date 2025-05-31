@@ -1,58 +1,66 @@
 <div class="nav">
-    <ul>
-        <li appActiveLink>
-            <a href="#">
-                <span class="icon"><i class='bx bx-aperture'></i></span>
-                <span class="title">Logo</span>
-            </a>
-        </li>
-        <li appActiveLink>
-            <a href="/login">
-                <span class="icon"><i class='bx bxs-log-in'></i></span>
-                <span class="title">Log in</span>
-            </a>
-        </li>
-        <li appActiveLink>
-            <a href="/dashboard">
-                <span class="icon"><i class='bx bxs-home'></i></span>
-                <span class="title">Dashboard</span>
-            </a>
-        </li>
-        <li appActiveLink>
-            <a href="/schedules">
-                <span class="icon"><i class='bx bxs-time'></i></span>
-                <span class="title">Schedule</span>
-            </a>
-        </li>
-        <li appActiveLink>
-            <a href="/payrolls">
-                <span class="icon"><i class='bx bxs-credit-card'></i></span>
-                <span class="title">Payroll</span>
-            </a>
-        </li>
-        <li appActiveLink>
-            <a href="/absences">
-                <span class="icon"><i class='bx bxs-door-open'></i></span>
-                <span class="title">Absences</span>
-            </a>
-        </li>
-        <li appActiveLink>
-            <a href="/headquarters">
-                <span class="icon"><i class='bx bxs-universal-access'></i></span>
-                <span class="title">Headquarters</span>
-            </a>
-        </li>
-        <li appActiveLink>
-            <a href="/departments">
-                <span class="icon"><i class='bx bxs-buildings'></i></span>
-                <span class="title">Departments</span>
-            </a>
-        </li>
-        <li appActiveLink>
-            <a href="#">
-                <span class="icon"><i class='bx bxs-log-out'></i></span>
-                <span class="title">Log out</span>
-            </a>
-        </li>
-    </ul>
+  <ul>
+    <li appActiveLink>
+      <a href="#">
+        <span class="icon"><i class="bx bx-aperture"></i></span>
+        <span class="title">Logo</span>
+      </a>
+    </li>
+
+    <!-- Mostrar solo si NO está logueado -->
+    <ng-container *ngIf="!isLoggedIn(); else loggedInLinks">
+      <li appActiveLink>
+        <a routerLink="/login">
+          <span class="icon"><i class="bx bxs-log-in"></i></span>
+          <span class="title">Log in</span>
+        </a>
+      </li>
+    </ng-container>
+
+    <!-- Mostrar solo si ESTÁ logueado -->
+    <ng-template #loggedInLinks>
+      <li appActiveLink>
+        <a routerLink="/dashboard">
+          <span class="icon"><i class="bx bxs-home"></i></span>
+          <span class="title">Dashboard</span>
+        </a>
+      </li>
+      <li appActiveLink>
+        <a routerLink="/schedules">
+          <span class="icon"><i class="bx bxs-time"></i></span>
+          <span class="title">Schedule</span>
+        </a>
+      </li>
+      <li appActiveLink>
+        <a routerLink="/payrolls">
+          <span class="icon"><i class="bx bxs-credit-card"></i></span>
+          <span class="title">Payroll</span>
+        </a>
+      </li>
+      <li appActiveLink>
+        <a routerLink="/absences">
+          <span class="icon"><i class="bx bxs-door-open"></i></span>
+          <span class="title">Absences</span>
+        </a>
+      </li>
+      <li appActiveLink>
+        <a routerLink="/headquarters">
+          <span class="icon"><i class="bx bxs-universal-access"></i></span>
+          <span class="title">Headquarters</span>
+        </a>
+      </li>
+      <li appActiveLink>
+        <a routerLink="/departments">
+          <span class="icon"><i class="bx bxs-buildings"></i></span>
+          <span class="title">Departments</span>
+        </a>
+      </li>
+      <li appActiveLink>
+        <a href="#" (click)="logout()">
+          <span class="icon"><i class="bx bxs-log-out"></i></span>
+          <span class="title">Log out</span>
+        </a>
+      </li>
+    </ng-template>
+  </ul>
 </div>

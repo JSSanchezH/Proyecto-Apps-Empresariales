@@ -11,11 +11,23 @@ import { Headquarter } from '../model/headquarter.model';
 export class EmployeeService {
   constructor(private http: HttpClient, private authService: AuthService) {}
 
-  private getHeaders(): HttpHeaders {
-    const apiKey = localStorage.getItem('apiKey');
-    return new HttpHeaders({
-      'x-api-key': apiKey || '',
-    });
+private getHeaders(): HttpHeaders {
+  const stored = localStorage.getItem('apiKey');
+  let apiKey = '';
+
+  if (stored) {
+    try {
+      const parsed = JSON.parse(stored);
+      apiKey = parsed.apiKey || '';
+    } catch {
+      
+      apiKey = stored;
+    }
+  }
+
+  return new HttpHeaders({
+    'x-api-key': apiKey,
+  });
   }
   private apiUrl = 'http://localhost:8009';
   getCompanyData() {

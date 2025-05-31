@@ -46,7 +46,7 @@ export class HeadquartersDetailsComponent implements OnInit {
       },
       error: (err) => {
         console.log(err);
-        // location.reload();
+        location.reload();
       },
     });
   }

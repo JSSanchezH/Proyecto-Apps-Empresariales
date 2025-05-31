@@ -11,6 +11,7 @@ import {
 import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeeService } from '../../../services/employee.service';
 import { Headquarter } from '../../../model/headquarter.model';
+import { AuthService } from '../../../services/auth.service';
 
 type FormFieldNames =
   | 'name'
@@ -62,6 +63,7 @@ export class RegisterHeadquarterFormComponent {
   constructor(
     private route: ActivatedRoute,
     private employeeService: EmployeeService,
+    private authService: AuthService,
     private fb: FormBuilder,
     private router: Router
   ) {
@@ -142,7 +144,7 @@ export class RegisterHeadquarterFormComponent {
 
   onSubmit() {
     // if (this.registerForm.invalid) return;
-    const idCompany = { id: 1, name: '' };
+    const idCompany = this.authService.getCompanyId();
     const cityObj = this.citiesList.find((r) => r.name === this.form.city);
 
     const newHeadquarter: Headquarter = {
@@ -150,7 +152,9 @@ export class RegisterHeadquarterFormComponent {
       address: this.form.address,
       phone: this.form.phone,
       city: cityObj ?? { id: 0, name: '' },
-      company: idCompany,
+      company: idCompany
+        ? { id: idCompany, name: '' }
+        : { id: 0, name: '' },
     };
     console.log(newHeadquarter);
     this.employeeService.createHeadquarter(newHeadquarter).subscribe({
