@@ -1,6 +1,10 @@
 <div class="department-container">
   <div class="container-form">
-    <form class="edit-department" (ngSubmit)="onSubmit()">
+    <form
+      class="edit-department"
+      [formGroup]="updateForm"
+      (ngSubmit)="onSubmit()"
+    >
       <h2>Edit Department</h2>
       <span>Fill the fields to edit the department</span>
 
@@ -9,7 +13,9 @@
         [iconClass]="field.icon"
         [type]="field.type"
         [placeholder]="field.placeholder"
+        [value]="form[field.name]"
         [options]="field.options || []"
+        (valueChange)="onFieldChange(field.name, $event)"
       ></app-input-field>
 
       <button class="btn" type="submit">Edit</button>
@@ -20,7 +26,8 @@
     <div class="info">
       <h3>Edit Department</h3>
       <p>
-        Here you can edit the department information. Please make sure to fill in all the fields correctly.
+        Here you can edit the department information. Please make sure to fill
+        in all the fields correctly.
       </p>
     </div>
   </div>

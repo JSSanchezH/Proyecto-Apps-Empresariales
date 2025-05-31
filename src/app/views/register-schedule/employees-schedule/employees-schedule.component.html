@@ -29,10 +29,10 @@
     </thead>
     <tbody>
       <tr *ngFor="let employee of displayedEmployees">
-        <td>{{ employee.name }}</td>
+        <td>{{ employee.firstname }} {{ employee.lastname }}</td>
         <td>{{ employee.id }}</td>
-        <td>{{ employee.department }}</td>
-        <td>{{ employee.role }}</td>
+        <td>{{ employee.department.name }}</td>
+        <td>{{ employee.role.name }}</td>
         <td class="actions-cell">
           <button class="assign-button" (click)="assignSchedule(employee)">
             ✔ Assign

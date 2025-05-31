@@ -2,8 +2,12 @@
   <app-topbar></app-topbar>
 
   <div class="items">
-    <app-employees-schedule (showForm)="showForm()"></app-employees-schedule>
+    <app-employees-schedule (showForm)="showForm($event)"></app-employees-schedule>
 
-    <app-schedule-form *ngIf="isFormVisible" (close)="hideForm()"></app-schedule-form>
+    <app-schedule-form
+      *ngIf="selectedEmployeeId !== null"
+      [employeeId]="selectedEmployeeId"
+      (close)="hideForm()">
+    </app-schedule-form>
   </div>
 </div>

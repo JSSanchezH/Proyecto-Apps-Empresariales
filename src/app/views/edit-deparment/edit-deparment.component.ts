@@ -7,10 +7,9 @@ import { EditDeparmentFormComponent } from './edit-deparment-form/edit-deparment
   standalone: true,
   imports: [TopbarComponent, EditDeparmentFormComponent],
   templateUrl: './edit-deparment.component.html',
-  styleUrl: './edit-deparment.component.css'
+  styleUrl: './edit-deparment.component.css',
 })
 export class EditDeparmentComponent {
-
   ngOnInit(): void {
     // Toggle menu functionality
     const toggle = document.querySelector('.toggle');
@@ -22,5 +21,4 @@ export class EditDeparmentComponent {
       nav?.classList.toggle('active');
     });
   }
-
 }

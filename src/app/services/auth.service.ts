@@ -20,6 +20,17 @@ export class AuthService {
     return localStorage.getItem(this.apiKeyKey);
   }
 
+  getCompanyId(): number | null {
+  const stored = localStorage.getItem(this.apiKeyKey);
+  if (!stored) return null;
+  try {
+    const parsed = JSON.parse(stored);
+    return parsed.id || null;
+  } catch {
+    return null;
+  }
+}
+
   // Elimina el apiKey (logout)
   clearApiKey(): void {
     localStorage.removeItem(this.apiKeyKey);

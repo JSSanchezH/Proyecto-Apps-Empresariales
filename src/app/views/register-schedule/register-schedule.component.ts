@@ -15,18 +15,17 @@ import { TopbarComponent } from '../../shared/topbar/topbar.component';
 
 export class RegisterScheduleComponent {
 
-  isFormVisible = false;
-  
-  showForm() {
-    this.isFormVisible = true;
+   selectedEmployeeId: number | null = null;
+
+  showForm(employeeId: number) {
+    this.selectedEmployeeId = employeeId;
   }
 
   hideForm() {
-    this.isFormVisible = false;
+    this.selectedEmployeeId = null;
   }
 
   ngOnInit(): void {
-    // Toggle menu functionality
     const toggle = document.querySelector('.toggle');
     const container = document.querySelector('.container');
     const nav = document.querySelector('.nav');

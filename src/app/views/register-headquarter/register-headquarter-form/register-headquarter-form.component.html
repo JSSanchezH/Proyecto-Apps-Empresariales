@@ -1,6 +1,10 @@
 <div class="headquarter-container">
   <div class="container-form">
-    <form class="edit-headquarter" (ngSubmit)="onSubmit()">
+    <form
+      class="edit-headquarter"
+      [formGroup]="registerForm"
+      (ngSubmit)="onSubmit()"
+    >
       <h2>Register Headquarter</h2>
       <span>Fill the fields to register the information</span>
 
@@ -10,6 +14,8 @@
         [type]="field.type"
         [placeholder]="field.placeholder"
         [options]="field.options || []"
+        [value]="form[field.name]"
+        (valueChange)="onFieldChange(field.name, $event)"
       ></app-input-field>
 
       <button class="btn" type="submit">Register</button>
@@ -20,7 +26,8 @@
     <div class="info">
       <h3>Register Headquarter Info</h3>
       <p>
-        Here you can register headquarter details. Please make sure to fill in all the fields correctly.
+        Here you can register headquarter details. Please make sure to fill in
+        all the fields correctly.
       </p>
     </div>
   </div>
